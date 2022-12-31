@@ -1,0 +1,1 @@
+ftp://ftp.jobboom.com/job.xml

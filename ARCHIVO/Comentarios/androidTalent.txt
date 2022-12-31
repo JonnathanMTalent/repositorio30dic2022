@@ -1,0 +1,72 @@
+Talent.com es una de las plataformas de búsqueda de empleo más grandes del mundo y una empresa de rápido crecimiento en el espacio tecnológico de recursos humanos. Después de obtener 120 millones de dólares en fondos de la Serie B en marzo de 2022, estamos contratando a una gran cantidad de personas talentosas en todo el mundo para que nos ayuden en nuestro objetivo de conectar el mundo al trabajo. Esta es una oportunidad única para trabajar en un entorno desafiante y acelerado con muchas posibilidades de desarrollo profesional. Talent.com cuenta con un equipo diverso y multicultural, con oficinas en todo el mundo, y estamos buscando nuevas voces que nos ayuden a seguir creciendo.   
+
+
+
+Estamos buscando un desarrollador móvil Android sénior para formar parte de un equipo acelerado en Medellín.
+
+
+
+Como desarrollador sénior de Android Mobile , será responsable de desarrollar, probar, mantener y hacer evolucionar nuestra aplicación móvil.
+
+
+
+Responsabilidades
+
+
+
+Desarrolle experiencias de usuario atractivas para Android utilizando Kotlin;
+Trabaje en estrecha colaboración con los equipos de producto y diseño para identificar oportunidades y traducir los objetivos del producto en código de alta calidad;
+Escribir código de alta calidad para la nueva aplicación de Android implementando las mejores prácticas;
+Tener un alto impacto en una nueva base de código;
+Asegurar la calidad y el rendimiento de la aplicación;
+Trabajando en nuevas funciones y correcciones de errores;
+Colaborar y agregar valor a través de la participación en revisiones de código de pares, proporcionar comentarios y sugerencias;
+Aprenda y colabore con un equipo cada vez mayor de personas motivadas de diferentes orígenes y países;
+Servir como mentor, asesorar a los compañeros de equipo y promover el intercambio de conocimientos y la comunicación entre los equipos de desarrollo de productos;
+Ayude a nuestro equipo de control de calidad a automatizar las pruebas y la integración continua;
+Manténgase al día con los últimos avances en el desarrollo de Android;
+Colabore entre funciones para transformar los puntos débiles de los usuarios y las necesidades comerciales en experiencias intuitivas;
+
+
+Calificaciones
+
+
+
+Más de 3 años de experiencia en codificación de Android con competencia primaria en Kotlin (Kotlin es imprescindible);
+Una capacidad demostrada en la entrega de código limpio, organizado, comprobable y de alto rendimiento;
+Familiarizado con las mejores prácticas para mantener una base de código saludable (revisión de código, integración continua);
+Comprensión comprobada de la aplicación de Android y ver los ciclos de vida;
+Experiencia trabajando en cada paso del proceso de desarrollo móvil: desarrollo, depuración e implementación;
+Tiene competencia con la arquitectura MVC, MVVM y MVP;
+Buena familiaridad con bibliotecas y API de terceros, como OKHTTP, actualización;
+Experiencia con aplicaciones de publicación;
+Experiencia con pruebas unitarias (corutina de Kotlin);
+Experiencia en la integración de API y servicios de back-end con aplicaciones móviles;
+Experiencia trabajando con Git;
+Experiencia trabajando con grandes bases de código nativo con una complejidad significativa;
+Conocimiento de código asincrónico de subprocesos múltiples;
+Experiencia en planificación y redacción de documentación técnica;
+Experiencia en el uso de base de fuego;
+Experiencia en implementaciones modernas a través de un pipeline de CI/CD;
+Experiencia con Android SDK;
+Tiene sólidas habilidades de comunicación y está entusiasmado por colaborar con equipos de back-end, gerentes de productos y diseñadores;
+Competente en metodologías Scrum/Agile;
+Licenciatura en Informática, Ingeniería y/o experiencia equivalente;
+Nivel de inglés intermedio/avanzado (B2-C1), tanto escrito como hablado (imprescindible).
+Lo que ofrecemos
+
+
+
+Un ambiente inspirador y amigable donde trabajarás con un equipo de personas jóvenes y apasionadas;
+alcance internacional;
+Salario competitivo;
+generosa política de vacaciones;
+Seguro de Salud SURA;
+Estructura organizativa plana y transparente;
+Café gratis, canasta de frutas y bocadillos;Frecuentes eventos corporativos y de networking.
+ 
+
+Cuando te unes a Talent.com, ingresas a una familia de personas apasionadas y motivadas, conectadas por su necesidad de crecer, innovar y su ambición incansable.
+
+Descubrirá un mundo en el que los empleados disfrutan de la flexibilidad y la autonomía que se les brinda, oportunidades para el avance profesional constante y un entorno de aprendizaje de apoyo.
+

@@ -1,0 +1,26 @@
+*******************************************************************************************************************************************
+BORRAR AL FINAL DEL DIA
+--->()  empcode:  empname:    estrategia:   rojas  
+               *************************************
+[stratagy: MANTEINANCE, 12/07/2022 ] scanid(), 
+Actualize expected jobs, scraping is ok
+logo(ok);  ,scanid asociado (Others inactive) locations(br),
+jobsite was indexed before ?(),update exp jobs();
+indexed?()-->status "Dinamic"(), 
+RuntimeAvg:( ) Country() pagination()
+ppc(no),black list(no), clasification()
+company() Feedcode()
+
+*******************************************************************************************************************************************
+
+PLANTILLA NUEVA LIMPIA 
+
+[stratagy: MANTEINANCE, 18/07/2022 ] scanid(),
+Migreted to talent
+Changed status in Talent and Neuvo.
+
+source_benefits();,update exp jobs(y);
+logo();  ,scanid asociado () locations(),
+-->status "Dinamic"(Active), 
+RuntimeAvg:( ) Country() pagination()
+ppc(no),black list(no), clasification(ok)

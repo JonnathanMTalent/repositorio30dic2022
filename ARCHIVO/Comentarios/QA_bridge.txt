@@ -1,0 +1,40 @@
+*******************************************************************************************************************************************
+BORRAR AL FINAL DEL DIA
+
+    --->()  empcode:  empname:    estrategia:   puente de QA  
+               *************************************
+[stratagy: QA bridge, 15/06/2022 ] old scanid(), inactive jobs()
+logo(); version Boo:() ,scanid asociado ():  new scanid(),
+found?(): homepage(), 
+found?(): jobsite(),  
+jobsite was indexed before ?(),
+QA bridge was necessary?(), 
+innactivated "boo2"(), or migrated"boo3"? (),
+indexed?()-->status "WOI-boo3"()-->"QA bridge required" or "Dinamic"(), 
+RuntimeAvg:( ) Country() pagination()
+agregar comentario al boo viejo y al dinamic
+
+
+*******************************************************************************************************************************************
+*******************************************************************************************************************************************
+    100 companys
+
+[stratagy:TOP 100 COMPANIES, 05/07/2022 ]scanid(), ppc(),black list(), locations(),
+ clasification(),runtimeAvg(); pagination(); update exp jobs();
+
+
+
+
+BOO2 INACTIVADO - NOJOBSITE:
+"[Strategy: QA bridge - Jun 03, 2022]change status to innactive, because the jobsite is not fount,
+ the ""puente QA"" is deleted and not fount: image ACELLERA NOT FOUNT in this link : https://ibb.co/MS2VhcS , 
+No job information was found on linkedin or other networks"
+
+
+
+BOO2 INACTIVADO, NUEVO SCANID:
+
+"[Strategy: QA Bridge- Jun 03, 2022] old scanid: 138188  is in boo2 , dont have other scanid asociated,
+ the new scan id is (252626).the url of jobsite not opens if we remove the QA bridge,error 404 in page 
+ jobsite, the new jobsite is: https://afry.com/en/join-us/available-jobs that url not is indexed in other 
+ scanid, inactivate old scanid, create new scanid in Dinamic and indexed jobs,Run time AVG: 630.800 "

@@ -1,0 +1,2 @@
+https://api.smartrecruiters.com/v1/companies' + window.location.pathname + '/postings?limit=100&offset=' + out.pass_it.offSet
+poner window.location.pathname en el console para armar la url

@@ -1,0 +1,61 @@
+ver los jobs activos con scanid inactivado:
+Inactive Spiders with Jobs
+https://cristianparra-dev.talent.com/sandbox/dash/spidersInactiveWithJobs.php
+
+
+ULTIMOS 7 DIAS EN STUCK
+talent.com/private/tools/content/thePulse/index.php?tab=overall&status=5&edited_date=2022-08-10%2520-%25202022-08-16&edited_by=nombreDelIndexer
+
+Scanids Status en Talent y Neuvoo
+FEED CODES NO RELACIONADOS
+https://cristianparra-dev.talent.com/sandbox/dash/spiderActiveBothSides.php
+https://cristianparra-dev.talent.com/sandbox/dash/spiderActiveBothSides.php
+
+
+WORKIN ON IT:
+https://talent.com/private/tools/bi/dashboards/view.php?dashboardID=226
+WORKIN ON IT EN Neuvoo
+http://index01.neuvoo.com/boo3-web/spider/status.php?user=
+
+Feedcodes no relacionados
+* A continuacion se listan las Companies que tienen feedcode_1 sin coincidencia exacta
+ (Mayusculas, espacios, caracteres especiales, ...) o no esta asociado a ningun Feedcode en la tabla de Feedcodes
+https://cristianparra-dev.talent.com/sandbox/feedRelacionView.php
+
+
+CODIGO PARA BUSCAR EL USUARIO EN LA CONSOLA DE :
+https://cristianparra-dev.talent.com/sandbox/dash/spiderActiveBothSides.php
+
+let Indexers=['usuario'];//Cambiar por su nombre de usuario
+bandera=0;
+let fechaAct = new Date();
+for (const a of document.querySelectorAll('tbody > tr')) {
+    Indexers.map(Indexer =>{
+        if (a.querySelector('td:nth-child(8)').textContent.includes(Indexer)) bandera=1;
+        dateEditedTalent = new Date(a.querySelector('td:nth-child(9)').textContent);
+        if ((fechaAct-dateEditedTalent)/(1000*60*60*24)>3) a.querySelector('td:nth-child(9)').style="background:rgba(255,0,0,0.5);";
+      })
+    if (bandera==0) a.remove();
+    bandera=0;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

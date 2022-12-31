@@ -1,0 +1,6 @@
+1) usar ctrl+mayus+f
+1)o usar la lupa segundo icono de la izquierda
+2)buscar por medio del fragmento inicial de url ejemplo: https://careers.smartrecruiters.com/
+3)bucar por medio de los selectores del titulo o algo asi, solo con las clases principales sin 
+  div.  o  li. para que no las pase por alto : opening-job
+4)Buscar armar la url del json y encontrar los componentes para indexar

@@ -1,0 +1,55 @@
+En boo3.1 / Dynamic -> job.source_benefit
+En XML Spider / Static / API -> $job[source_benefit]
+
+
+title = ()
+url =() 
+reqid =() 
+source_location = ()
+location = ()
+dateposted_raw = ()
+dateclosed_raw = ()
+source_jobtype = ()
+source_salary = ()
+experience_required = ()
+source_benefit=()
+source_empname =()
+
+
+
+
+
+
+
+
+job.title;
+job.url;
+job.reqid;
+job.source_location; //location sin editar;
+job.location; //location con formato correcto "Ciudad, Estado, Pais(US)";
+job.dateposted_raw; //formato correcto "mm/dd/aaaa" en numeros;
+job.dateclosed_raw; //formato correcto "mm/dd/aaaa" en numeros;
+job.source_empname;
+job.source_jobtype; //Full-time, Part-time, Temporary, Permanent;
+job.source_salary;
+job.experience_required
+LINEAS DE CODIGO PARA VARIABLES:
+
+//job.source_location = elem.querySelector('').textContent.trim();
+//job.reqid = elem.querySelector('').textContent.trim(); 
+//job.source_jobtype = elem.querySelector('').textContent.trim();
+//job.source_salary = elem.querySelector('').textContent.trim();
+//job.experience_required = elem.querySelector('').textContent.trim();
+//job.source_empname = elem.querySelector('').textContent.trim();
+//job.logo = elem.querySelector('').getAttribute("src").trim();
+//let datePosted = elem.querySelector('').textContent.trim();
+//job.dateposted_raw = getDateFormat(datePosted," ",0,1,2); 
+//let dateClosed = elem.querySelector('selectorDeLaFechaDeCierre').textContent.trim();
+//job.dateclosed_raw = getDateFormat(dateClosed);
+
+    //job.logo = elem.querySelector("").getAttribute("src").trim();
+    //job.source_apply_email = elem.querySelector("").textContent.trim();
+    //job.source_empname = elem.querySelector("").textContent.trim();
+    //job.experience_required = elem.querySelector("").textContent.trim();
+    //job.dateclosed_raw = document.querySelector("").textContent.trim();
+    job.study_required=

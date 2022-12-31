@@ -1,0 +1,54 @@
+Mantenimientos									
+Reparar y/o corregir spiders con problemas de reindexación, con status booe, stuck y stuck by systen									
+									
+1. Revisar el crawl history del spider asociado al caso.									
+2. Verificar las columnas new y old, deberian mostrar activaciones e inactivacions de cantidades similares de jobs									
+3. Recordar que la reindexación ocurre generalmente por la presencia de vriables de sesion en la URL									
+4. Booe, mirar la causa del boo error. 									
+"5. Corregir booe, siempre validar la correcta extraccion de los datos.
+     Considerar  llenar la columna cause of error a fin de registrar el motivo del error.
+     Validacion de Datos en el codigo: Se selecciona cuando falto validar datos en el codigo del spider y esto causo que se rompiera
+    Booe-Cambio de Selector de los trabajos: Cambio el selector de los trabajos en el jobsite.
+    Booe-Cambio de la URL del Jobsite; Cambio la URL del Jobsite.
+    Booe-Disminuyó  de Jobs en el trabajo: Disminuyo la cantidad de jobs publicacios en el jobsite
+    Reindex-URL Incluye variable de sesion. Si la url incluye un valor que canbia constantemente cada vez que se ejecuta el spider
+    Otros (Complementar en el comment): Si la clasificacion no esta presente indicar Otros y detallarla en el comment del caso."									
+	Tipos de Casos								
+1	Stuck By System: Casos que tienen algun tipo de problema. Generalmente son reportados por Desarrollo								
+2	Stuck: Spiders en las cuales sus ultimas 3 corridas dieron error o terminaron unfinished								
+3	Reprocess: Casos que en cada corrida generan gran cantidad de updates. 								
+4	Reindexación: Cuando en cada corrida la cantidad de jobs new es igual a la de jobs old.								
+5	Jobdata high load: Spider con procesamiento de jobdata superiores a los 10 segundos por cada job	
+
+
+RECOMENDACIONES:
+
+ Buenas prácticas antes de editar el caso:​
+
+Abrir el Scanid Overview​
+
+Mirar Boo Error (crawl history, Insert Problem) Ver que esta pasando, analizar y pensar en posibles soluciones.​
+
+Abrir el feedcode overview y mirar todos los scanids relacionados con el feedcode​
+
+Abrir el scanid Spider boo 3.1,​
+
+Mirar si se extraen todas las variables,​
+
+todo esta ok con feedcode, feedtype, empname.​
+
+Revisar paginations​
+
+Revisar jobdescription​
+
+Si todo esta bien y solamente debo hacer Kill ES Error, proceder.​
+
+Si existen problemas y es necesario arreglar cosas editar el spider. ​
+
+Mirar los demas spider asociados y aplicar el mismo paso a paso.​
+
+Es importante enfocarse en corregir todo lo que este relacionado con el feedcode​
+
+del scanid que estamos corrigiendo para que este quede perfectamente trabajado​
+
+​

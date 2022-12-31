@@ -1,0 +1,30 @@
+Para definir si el scanid presenta alguno de los 3 valores en “Jobs Stats Error”,
+se propone realizar un promedio de las últimas 3 corridas consecutivas en producción.
+Así se verifica si el valor de los jobs enviados a inactivar, insertar o actualizar
+supera el 30% promedio de la cantidad de jobs crawled en las mismas corridas.
+
+
+
+
+Cantidad considerable de jobs actualizados en varias corridas.​
+Reprocess: Actualizaciones de jobs en cada corrida.​
+
+
+Reprocess: Indica que se está enviando una cantidad considerable de
+jobs a actualizar (update). Es parecido a Reindex, alguna de las
+variables del arreglo job está cambiando continuamente en el job.
+
+
+Jobs Error Log
+Revisión: The Pulse​
+Análisis: Crawl History
+
+Identificar que esta causando que los jobs no puedan insertarse
+
+ALGUNAS CAUSAS:
+-funcion dateAgo.
+-fecha relativa.(la fecha se actualiza cada cierto tiempo).
+-variable de sesion.
+-jobs no se insertan( posiblemente no extrae el jobdescription?)
+
+es normal que hayan jobs atualizandose pero no demasiados proporcionalmente.

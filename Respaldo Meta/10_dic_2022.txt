@@ -1,0 +1,75 @@
+210822	CL Rojas	[Strategi:RED] fix format of date: add 0; add lines to clean common expresions www, htttps, @, etc,update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+204624	CL Rojas	[Strategi:RED]   add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,     Run time AVG: 4215.600 ms
+230198	CL Rojas	[Strategi:Red]  add pagination, add more jobs, clean validation of chars, add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+205398	CL Amarillas	[Strategi:Yellow] empname from about us on linkedin, couldn't clean the title because it would delete important information   fix format of date: add 0 , add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,
+230024	CL Amarillas	[Strategi:Yellow]   add validation in jobtype, add elements in remove selectors,  add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+230109	CL Amarillas	[Strategi:Yellow]   fix format of date: add 0 , add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+223086	Estrategia Especial	[Strategi:reindex-reinsert] add experience,  add lines to clean common expresions: www , https, @, etc,  add validations for var experience and salary, add elements in remove selectors,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, Run time AVG: 1658.800 ms
+223569	Estrategia Especial	[Strategi:reindex-reinsert] was in stuck clean unnecessary waits in config and put in yes no image, etc, add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,
+223730	Estrategia Especial	[Strategi:reindex-reinsert] add jobtype, add experience, add validation in reqid, add elements in remove selectors,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+224079	Estrategia Especial	[Strategi:reindex-reinsert] reindex jobdesc,   clean jobtype, add salary and experience required,  add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname
+224079	Estrategia Especial	[Strategi:reindex-reinsert] reindex jobdesc,   clean jobtype, add salary and experience required,  add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname
+	Disminución de meta	Meeting team 9 de las 10 am
+	Disminución de meta	English class.
+	Disminución de meta	English class.
+	Disminución de meta	English class.
+168006 / 151992 /154135	Estrategia Especial (3x1)	[Strategi:reindex-reinsert] was inactivated because not has jobs only the instructions for apply:  https://ibb.co/s3SfjDG /[Strategi:reindex-reinsert] it is inactivated because the jobsite does not open and the homepage does not open either, there is nowhere to look for the information
+107768	Estrategia Especial	[Strategi:reindex-reinsert] fupdate selector of jobtype, add benefits, add lines to clean common expresions: www , https, @, etc,  add elements in remove selectors,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, Run time AVG: 3467.800 ms
+150327	Estrategia Especial	[Strategi:reindex-reinsert] fix format of date: add 0; add jobtype, add experience required, add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,Run time AVG: 1763.400 ms
+154330	Estrategia Especial	[Strategi:reindex-reinsert] create a new template because others templates not work, add multilocation, add lines to clean common expresions: www , https, @, etc,  add elements in remove selectors,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,
+185767	Estrategia Especial	[Strategi:reindex-reinsert] add lines to clean common expresions: www , https, @, etc,  add validations for vars , update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+189750	Estrategia Especial	[Strategi:reindex-reinsert] filter jobs not pdf, reindex jobdescription, add lines to clean common expresions: www , https@,update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,  etc,  Run time AVG: 855.000 ms
+192005	Estrategia Especial	[Strategi:reindex-reinsert] add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname
+207687	CL Amarillas	[Strategi:reindex-reinsert]fix format of date: add 0 , add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+192209	Estrategia Especial	[Strategi:reindex-reinsert] add jobtype, add experience, add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,  Run time AVG: 623.800 ms
+204151	Estrategia Especial	[Strategi:reindex-reinsert] fix dateposted raw, add lines to clean common expresions: www , https, @, etc,  add validations for vars experience and salary, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+204385	Estrategia Especial	[Strategi:reindex-reinsert] add other form and validation for extract vars, lines to clean common expresions www, htttps, @, etc,add elements in remove selectors, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname ,  Run time AVG: 2337.667 ms
+220350	Estrategia Especial	[Strategi:reindex-reinsert] fix jobdescription , change url by link in pass_it. update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,  add lines to clean common expresions: www , https, @, etc,    Run time AVG: 1976.000 ms
+221172	Estrategia Especial	[Strategi:reindex-reinsert] change do while by pass_it, add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+98887	Estrategia Especial	[Strategi:reindex-reinsert] fix format of date, add occurrences of - and .  , and clean this. update selector of jobdescritption,add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+103139	Estrategia Especial	[Strategi:reindex-reinsert] reindex, add jobtype, salary, add lines to clean common expresions: www , https, @, etc, add elements in remove selectors,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, Run time AVG: 1298.200 ms
+221960	Estrategia Especial	[Strategi:reindex-reinsert] fix location, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+103720	Estrategia Especial	[Strategi:reindex-reinsert] fix errors occurence in location, fix country error, add lines to clean common expresions: www , https, @, etc, add validations for vars update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+104214	Estrategia Especial	[Strategi:reindex-reinsert] clean url of variable of season, add jobtype, add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+105375	Estrategia Especial	[Strategi:reindex-reinsert] fix format of date, clean date of minutes and seconds, fix location, add elements in remove selectors,  add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,
+213040	CL Rojas	[Strategi:red] update exp jobs, add lines to clean common expresions: www , https, @, etc, add validations for more varsupdate temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,
+204406	CL Rojas	[Strategi:red]  change getDescription by ajax in step extract, add jobtype, add lines to clean common expresions: www , https, @, etc,  add validations,update expected jobs
+212703	CL Rojas	[Strategi:red] add experience required , add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, Run time AVG: 1599.200 ms
+229749	CL Rojas	[Strategi:red] add experience required , add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, Run time AVG: 1736.000 ms
+209600	CL Rojas	[Strategi:red] fix format of date: add 0 , clean unnecessary wait, add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname,  has much expired jobs.
+212379	CL Rojas	[Strategi:red] fix format of date: add 0 , add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+229912	CL Rojas	[Strategi:red] check and update exp jobs,  add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+209219	CL Rojas	[Strategi:red] update template, add date, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, add lines to clean common expresions: www , https, @, etc,  
+208281	CL Rojas	[Strategi:red] search for add date in script json, but dont exist,  the date ago cause insert problems, clean this for this cause not get dateposted, add lines to clean common expresions: www , https, @, etc,   Run time AVG: 2418.600 ms
+229081	CL Rojas	[Strategi:red] add elements in remove selectors,  clean validation of chars, add benefits, add lines to clean common expresions: www , https, @, etc,  update expected jobs, Run time AVG: 856.600 ms
+207650	CL Rojas	[Strategi:red] add benefits, clean waits for html, and other waits,  add elements in remove selectors,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+	Disminución de meta	jueves Festivo
+230093	CL Rojas	[Strategi:red] fix format of date: add 0 , update expected jobs,  add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+70484	CL Rojas	[Strategi:red] clean waits in config, fix format of date: add 0 , add lines to clean common expresions: www , https, @, etc, update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, 
+209167	CL Rojas	[Strategi:red] add experience required, add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, Run time AVG: 911.400 ms
+212758	CL Rojas	[Strategi:red] add experience,add lines to clean common expresions: www , https, @, etc,  update temp for update the source_empname. Comunicado,Madelen Brito Carrera: Variable y/o campo source_empname, Run time AVG: 580.800 ms
+208118	CL Rojas	[Strategi:red] update jobsite, reindex, add all vars in the jobsite old jobsite: https://jobs.kenoby.com/MOBWIRETelecom
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema
+	Disminución de meta	reduccion por TOWN HALL y fallas del sistema

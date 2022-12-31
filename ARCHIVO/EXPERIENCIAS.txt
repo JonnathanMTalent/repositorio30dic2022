@@ -1,0 +1,152 @@
+ISO 3166-1 alpha2
+
+******************************************************************************************
+ARCHIVOS DE INTERES:
+
+COMENTARIO    
+pendientes     (scanid e info de lo que quedo pendiente con fecha)
+Preguntas      (personas a las que puedo consultar con numero y fecha de la ultima pregunta)
+
+******************************************************************************************
+
+
+
+si no trae todos los jobs:
+   - poner esperas
+❤️- Poner validaciones en las variables o borrar varibles 
+
+NO FUNCIONA:
+- hiciste traduccion?
+- la url del jobsite es la correcta en el config?
+
+USAR ESTO:
+msg("lo que trae es: "+variable);
+out.pic= true;
+
+
+
+******************************************************************************************
+JOBDATA O JOBDESCRIPTION:
+-si es en un json recordar meter en un div el html ( como en la descripcion de getDescription()) 
+antes de usar .querySelector('')
+-recordar que el pass_it en el jobdata solo trae el title el link, el source_benefit y el jobid.
+- en la descripcion la url que esta llegando es correcta?
+- esta bien armada con los parametros que son?
+❤️❤️❤️-hay alguna espera por un selector que no existe?
+❤️-se extrajo la locacion?
+- si no se logra extraer normal usar jobdescription con json, suele servir.
+
+******************************************************************************************
+VALIDACIONES:
+
+  // Validación de selector. 
+  // Nota: Si no se valida el selector el código entrara en error y no subira el job en cuestión.
+  SE PUEDE USAR EL OPERADOR || O TAMBIEN ?? LA DIFERENCIA ES QUE ?? PERMITE VALORES DE "0" Y STRING VACIO "";
+        job.source_location=job.source_location||"";
+        job.location=job.source_location||"HEAD QUARTERS";  //
+******************************************************************************************
+👌cuando en la respuesta trae un objeto recordar parsear el json, o pasar por innerHTML la variable.
+
+Recuerda que el jobfantasma se define despues del for,, no dentro de el
+
+Recordar que el fetch html o el json html no siempre tienen los mismos selectores
+hay que mirar con un msg cuales son los selectores correctos.
+
+
+👌 cuando el scrapin da en la consola y no da en dinamic puede ser porque al 
+abrir el sitio no se abre en esa hubicacion donde estamos poniendo el codigo
+por ejemplo hay que hacer click en un boton o vinculo para que aparezca la informacion.
+   
+
+Recordar al cojer selecotores ponerle div. o li.  o div# porque se me esta olvidando mucho y
+la falta de eso hace que no pueda iterar 
+
+👌cuando en json un html aparece con la descripcion en el preview en la consola, pero cuando uno lo trae en el 
+navegador no funciona suele ser porque hay que darle click a algun boton y luego hay si tomar luego
+de eso el copy as fetch, porque el primer fetch no trae los datos de los jobs, el segundo si, y hasta puede cambiar
+de get a post
+
+
+👌si en la descripcion no aparecen los selectores, buscar si tiene un iframe
+
+
+hay que ir haciendo msg y pic en cada paso a medida que se mira si cada paso esta bien
+
+
+a veces la url hay que completarla desde mas abajo , no solo el reqid, ir haciendo comparaciones 
+y la url normal puede tener un pedazo para armar la url del fetch hay que comparar estas dos y ver lo cumun
+
+❤️ Revisar que al traer descripciones en el config este en si o en no, segun el caso,,, esto me pasa mucho
+
+Revisar que las urls sehan ats, se me olvida mucho.
+
+
+Cuando en un json no se vea paginacion es muy probable que este en un token, 
+
+Pílas: no confundir el error de jobdata con Datepoosted
+
+Cuando vaya a copiar el error en JOBS ERROR LOG, subrayar todo desde la palabra siguiente incluso tomando el principio de la palabra siguiente despues del mensaje y luego darle a los 3 puntos
+
+
+******************************************************************************************
+
+///////////////////////////  HISTORIAL DE ARREGLOS /////////////////////////////////
+{(dia/mes-hora:minuto)(/-:)(/-:)problema1-problema2-problema3}
+{(/-:)(/-:)(/-:)}  
+{(tm/tr-rh:tn)}
+{(tm/tr-rh:tn)problema1 (tm/tr-rh:tn)problema2 }
+{(tm/tr-rh:tn) (tm/tr-rh:tn) (tm/tr-rh:tn)}
+
+
+************EXTRAER VARIABLES******************************************************************************
+Recargar la pagina en cada prueba en la consola porque el codito limpia la descripcion.
+las lineas se estan poniendo en la posicion adecuada? (Sobre todo al extraer variables de el tmp, o el doc document). 
+probar con los 5 selectores: document,result, doc, full_html, tmp.
+❤️❤️❤️ si trae error en un textContent y en la consola si funciona es por esperas, poner espera por
+        ese selector en especifico en un paso anterior, recordar usar el step Before pagination.
+NO saca la variable:
+   - hiciste traduccion?
+   - la url del jobsite es la correcta en el config?
+   - json html tiene otros selectores.
+   -expresion regular en un string?
+   -las funciones estan bien declaradas en el orden y tipo de dato correcto?
+
+USAR ESTO:
+   msg("lo que trae es: "+variable);
+   out.pic= true;
+******************************************************************************************
+
+MUY IMPORTANTE:
+
+Cuando estoy editando el codigo y declaro variables por ejemplo job= ... todo el extrac.   Se me olvida :
+
+1) Quitarla cuando la paso al dinamic
+2) cuando le corrijo o cambio cosas y paso del dinamic a la consola se me olvida volverla a poner y me trae los resultados de la anterior
+3 cuando paso funciones nuevamente la primera vez le cambio el tmp por ejemplo pero ya luego se me olvida y le pongo es el document con el que viene. 
+Recordar y estar antento a esto.
+
+❤️ Cuando uno usa expresiones regulares o algo para editar texto esto cambia las expresiones de otros idiomas como la dieresis por ejemplo
+
+❤️❤️❤️ a veces el reprocess esta causado por la url del jobsite, hay que imprimir la url para ver como la extrae el robo talent
+
+De ahora en adelante duplicar los jobsite para ver la descripcion, muchas veces muestra otra cosa cuando uno le da secundario abrir otra pestaña.
+
+❤️recordar que al usar expresiones regulares no se deben meter en comillas de string.
+
+*****************AHORRA TIEMPO************************************************************************
+USAR SIEMPRE EL VPN, evita demoras
+mantener siempre usando los ARCHIVOS DE INTERES
+❤️ AHORRA TIEMPO : Al hacer pruebas quitar la paginacion y poner una url que se haya buscado con el problema que se quiere evidenciar: ejemplo las 
+locaciones con dieresis , poner una pagina donde aparezcan las locaciones con dieresis
+usar el printJob(job) en las descripciones.
+******************************************************************************************
+
+
+
+***********************AL EMPEZAR A TRABAJAR:***************************************************************
+-Activar VPN.
+-Leer Experiencias.
+-revisar servicios.
+-Revisar the Pulse.
+-Leer Hoja de pendientes.
+*************************************************************************

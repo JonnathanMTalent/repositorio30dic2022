@@ -1,0 +1,19 @@
+Estrategia	Jobdata High Load						
+
+PROCESAMIENTO MAYOR O IGUAL A 10 SEGUNDOS (10000 ms)
+verificar el runtime AVG menor a 10000ms
+
+REPORTAR EL CASO SI NO SE LOGRA VAJAR EL TIEMPO. Dar evidencia de que se trabajo el caso.
+
+Objetivo	Reducir el Runtime del Jobdata a menos de 10 segundos (10000 ms),
+ para mejorar el performan del spider y reducir el impacto del procesamiento del jobdata en la carga del sistema						
+							
+Instrucciones	Realizar una revision, analisis y pruebas del jobsite y su comportamiento
+ a fin de poder reducir tiempos de cargas apoyandonos en el uso de las opciones de Dynamic y Static.						
+	Eliminar waits y woitsFor indesesarios, en jobdescription						
+	Configurar espera waitForPageText en Yes solo si es necesario						
+	Configurar esperawaitForPageLoadEvent en Yes solo si es necesario						
+	Configurar espera waitForPageResources en Yes solo si es necesario						
+	Activar el uso de ciertas opciones injectDefaultCodes solo si es necesario						
+	Activar el uso de las opciones skipResourceTypes para evitar cargar hojas de estilo, librerias etc 						
+	Activar el uso de skipResourcesMatch para filtrar la carga de recursos que puedan estar causando demoras en la carga del jobsite						

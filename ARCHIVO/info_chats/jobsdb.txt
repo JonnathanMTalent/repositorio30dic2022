@@ -1,0 +1,79 @@
+NOTAS DE RUDI JOBSDB 
+
+
+Si se quiere encontrar un link o una URL se debe colocar la misma precedida de “_analyzed:”
+
+poner en el jobs db para ver si esta indexado o es ats:
+flag_active:1 AND link.link_analyzed: ""
+
+flag_active:1 AND scanid:12121
+flag_active:1 AND location:"location:" OR location:"read more" OR location:"Remote Work"
+// se usa "" para buscar expresiones largas antes se usaba \" expresion\"
+
+flag_active:1 AND title:*test* ---> Tested, testing, frases que incluyen dentro de otra palabra
+flag_active:1 AND title:"test"---> test, frases que contentan la palabra separada
+
+flag_active:1 AND -location:"location:" ejemplo del not (-);
+
+flag_active:1 AND location_raw:"location:" busca el valor exacto de ""
+en este caso el _raw significa que el valor es exacto.
+
+flag_active:1 AND location:"location:" or (title:"gato" AND -geo_country:"us")
+// el agrupamiento es con ();
+
+
+flag_html:0  no tiene descripción
+flag_html:1  no existe descripción
+flag_html:2  descripción correctamente
+flag_html:3  descripción en pdf
+flag_html:e  descripción en error
+
+salary_min:* // * asi solo significa que tenga valor, que no sea null o validaciones
+
+flag_active:1 AND salary_min:* salary_min:>1000 // comparacion con > o con <
+flag_html:e //e sola significa que tenga eror
+
+los signos > y < funcionan comparando numeros y fecha con formato iso aaaa-mm-ddthh:mm:ss
+
+link.link_analyzed:"www.amazon"
+
+empname_raw:\”Confidential\”
+AND title:\"Safety manager\"
+AND flag_active:1 AND title:* Premium Job* 
+AND jobdesc: \"iframe\"
+AND jobdesc: \"undefined\"  
+AND jobdesc: \"null\"   AND
+AND jobdesc: \"null\"
+AND empname: \"Confidential\"  
+AND empname: \"Confidential\"
+AND -title:* 
+AND jobdesc: \"facebook\" 
+AND title: \"www\" 
+AND title: \"www\"
+AND -empname:* 
+AND -empname:*
+flag_active:1 AND geo_city:\"Quebéc\" AND link:*indeed* //Para buscar jobs en una ciudad que tengan en el link la palabra indeed
+ AND geo_city:\"Quebéc\"
+flag_active:1 AND link:*undefined* //Para buscar links con la palabra undefined que esten malos
+ AND link:*undefined*
+para errores de FH e
+AND flag_html:e  
+H: title: \"ref\"  AND flag_active:1 AND geo_country:ch
+US: title: \"ref\"  AND flag_active:1 AND geo_country:us 
+flag_active:1 AND location:posted 
+flag_active:1 AND location:title 
+AND flag_html:e
+
+
+IMPORTANTE:
+Otra cosa curiosa de adp es que despues de 101 páginas, empeza a llevar jobs duplicados
+
+
+
+👍👍👍👍👍👍👍👍👍👍👍👍👍
+
+ejemplos funcionales:
+
+flag_active:1 AND scanid:141792 AND ((-geo_country:*) OR (geo_region1:"null" OR (-geo_region1:*)) OR (geo_city:"null" OR (-geo_city:*)))
+
+flag_active:1 AND scanid:208924 AND -flag_html:2

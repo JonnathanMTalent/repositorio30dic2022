@@ -1,0 +1,56 @@
+
+en el json get:
+1) se le da open in new tab al archivo json que aparece al darle click a next, o moore
+
+2) en el encabezado copiamos la url que dice request url y pegamos en url del extract
+
+3)copiamos los request headers, dandole click en copy as fech
+
+4)se comenta el data y el json stringify, esto es para json post
+
+5) se comenta el do while que es para la paginacion
+
+6) A VECES  TESTEA Y LUEGO DA ERRROR Y HAY QUE CAMBIARLE LOS HEADERS
+
+
+
+//**********************************************************************************************
+a veces aparece el json dandole a search
+
+de copy as fecht sacamos:
+   -url
+   -encavezados
+   -metodo pos-get
+
+LA DIFERENCIA ENTRE GUET Y POST ES :
+		-LO DEL REQUEST PAY LOAD
+		-CASI TODOS LOS GET PAGINAN POR REQUEST URL
+		-LOS POST PAGINAN POR LA VARIABLE DATA EN PAGE FILTER O EL CONTADOR
+
+
+AGREGAR LA COOKIE AL HEADER DE FORMA MANUAL CUANDO TOCA, O CONSTRUIRLA
+  - COOKIE O TOKEM
+  -ESTA EN EL HTML O EN EL JSON SE LLAMA COOKIE O TOKEN Y AHI VA UN NUMERO.. POR LO GENERAL ESTA DENTRO DEL HTML
+   SE TOMA EL NUMERO Y SE PEGA EN LOS ELEMENT EN EL BUSCADOR CTRL+F Y SE TOMA EL ELEMENTO DONDE ESTA
+
+
+CUANDO NO VENGA UNA PROPIDAD QUE CONTIENE A LOS JOBS DEJARLO COMO RESPONSE O LO QUE VIENE COMO RESPUESTA DE LA FUNCION  DE LLAMADA
+
+CON COPY PROTPERTY PATH
+EL CONFIG CAMBIA TIENE 2 TRUE
+
+1) COPI AS FECH 3 DATOS
+2)COMENTAR EL DO WHILE
+3)PEGAR URL HEADERS Y TIPO DE METODO
+
+primero provamos el extrac en la primera pagina y luego se hace la paginacion
+En post tenemos que llenar la variable data para que pagine, data es un json
+
+EN EL JSON GET NO SE NECESITA DATA PORQUE EL PAYLOAD ESTA EN LA MISMA URL
+
+descomentamos el tringify data
+
+copiamos lo que hay en payload--> view source,,  y lo poenemos en data
+
+En los json Get se pagina por url, el get se puede ver en una nueva pestaña
+

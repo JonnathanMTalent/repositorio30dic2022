@@ -1,0 +1,83 @@
+Para definir si el scanid presenta alguno de los 3 valores en “Jobs Stats Error”,
+se propone realizar un promedio de las últimas 3 corridas consecutivas en producción.
+Así se verifica si el valor de los jobs enviados a inactivar, insertar o actualizar
+supera el 30% promedio de la cantidad de jobs crawled en las mismas corridas.
+
+
+¿Qué datos generan el job id?
+
+
+
+No cambian:
+Scanid
+Feedcode
+*Empname (a menos que se modifique)
+Valores que pueden cambiar
+4. Title
+5. Location
+6. URL: Variable de sesión
+Corresponden a procesos de actualización en la base de datos
+
+
+
+crawl history:
+MISMA cantidad de jobs new y old en cada corrida. ESTA DIRECTAMENTE RELACIONADO CON EL JOBID.
+SE INSERTAN LA MISMA CANTIDAD DE JOBS Y SE INACTIVAN LA MISMA CANTIDAD DE JOBS.
+Los jobs activos van incrementandose
+
+
+
+Por qué? ​
+Generación del Jobid  Hybrid Spider =yes​
+Title + location​
+Title + url (sino hay location en el extract)
+
+ALGUNAS CAUSAS:
+-no se extrae la location en el extract.
+-la url tiene una variable de sesion.
+
+Cómo resolverlo?
+tratar de extraer la location desde el extract para que no tome la url,(si tiene mesnos de
+ 300 jobs se puede usar ajax, o si no es muy lento con ajax) si no :
+Eliminar la variables del querystring que están causando que la url cambie constantemente
+
+
+Revisión: The Pulse​
+
+Analisis: Crawl History
+
+Ahora en talent: El jobid se compone solamente de estos campos:
+Título, location, empname, scanid y feedcode.
+job.jobid = MD5(job.title+job.location+empname+scanid+feedcode).toString();
+
+
+job.temp = 2020;
+job.jobid = MD5(job.title+job.location+job.source_empname+job.source_jobtype+job.dateposted_raw+job.temp)
+$job['jobid'] = md5($job['title'].$job['location'].$job['source_empname'].$job['dateposted_raw'].$job['client_tag'].$job['temp'].$id);
+job.jobid = MD5(job.title + job.location + job.temp + id).toString();
+job.jobid = MD5(job.title+job.location+job.temp).toString(); // este es el de la guia
+jobs.push(job);
+
+Jobid. 
+
+¿Qué es el jobid  y cómo se compone? 
+Es una composición o combinación de diferentes valores el cual nos da como resultado
+un identificador único para cada trabajo dentro de nuestra BD. 
+
+Anteriormente en neuvoo: El job id se construyó basándose en toda la información que había disponible
+ en el extract, concatenando y encriptando todas variables del arreglo job. 
+y en ciertas ocasiones para evitar reindexaciones se setea el jobid desde el spider. 
+
+job.jobid = MD5(job.title+job.location+job.temp).toString(); 
+
+Siempre intentamos evitar colocar variables que cambien, cuando tenemos casos de reindexación en su 
+mayoría la url puede contener variables de sesión, seteando el código del jobid se evita que sesión
+inactiven trabajos y se inserte el mismo job siempre como new. 
+Ahora en talent: El jobid se compone solamente de estos campos: Título, location, empname, scanid y feedcode. 
+información suministrada por DEV: 
+“Se usará el nuevo esquema de generación de Ids: 
+Valores únicos para identificar un job como nuevo: título y location Van a comenzar
+a aparecer muchos duplicados Tendremos menos jobs como nuevos-viejos y tendremos más jobs como update” 
+¿Para qué nos sirve el jobid ? 
+Nos sirve para identificar como único un trabajo dado, posterior a ello,
+ poder clasificarlo como un trabajo nuevo, viejo, error ,reactivado o actualizado. 

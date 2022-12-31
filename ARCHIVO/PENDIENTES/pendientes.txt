@@ -1,0 +1,169 @@
+
+
+
+
+
+
+94903, 223569, 254192  woi de ayer
+107244  estaba en woi
+
+145375   organizarle la locacion
+213704   se esta seteando 
+
+
+PENDIENTES DE WIC CON ERRORES EN EL OVERVIEW
+178199 WIC 2
+
+191836
+167064
+
+156240  15/11/2022 no se pudo extraer el salary ni de json, ni de html, ni de result
+👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽 
+//////////////////////////////////////////////////////////////////////////////////////
+
+Revision WIC
+
+xml que hay que limpiar la locacion de numeros y parentesis
+https://www.talent.com/private/tools/content/scraper/spiderCodeTool.php?scanid=143988
+
+
+
+preguntar si esta pagina con estas descripciones tan raras si se indexa
+https://www.talent.com/private/tools/content/scraper/spiderCodeTool.php?scanid=19438
+
+
+avisarle a juan suarez qe tiene errores de insersion
+https://talent.com/private/tools/jobs/pageNewScanidView.php?scanid=195141
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+estaban en woi el 11/11/2022
+
+144612
+122766
+
+
+
+
+
+
+
+
+254907 el feedcode es sistemax pero cuando se da click en el homepage me redirige a global industries, pero el scanid de global
+induestrias tiene menos jobs y son diferentes jobsites.
+**********************************************************************
+24/10/2022:
+
+152542 was in woi. i not work it.
+
+**********************************************************************
+
+PONER EL VALIDADOR DE  HQ  EN EL PORTAPAPELES
+        job.source_location=job.source_location||"";
+        job.location=(job.source_location)||"HEAD QUARTERS";
+
+
+
+if(job.source_location==undefined || job.source_location==null || job.source_location.length<2  ){
+	job.source_location="";
+	job.location="fontaine, Rhône-Alpes"  // HEAD QUARTERS : https://www.linkedin.com/company/by-my-car-group-sas/about/
+	}
+************************************************************
+MAÑANA:
+laura.vidal 34006 TIENE JOBDATA ERROS Y CARACTERES ESPECIALES EN LA DESCRIPCION
+LUIS ARROYAVE SCANID: 610
+ jean.paredes 164331
+ CARLOS MORENO 101665, 66736
+sebastian.sanchez  65803  SE INACTIVARON MUCHOS
+david.meneses OTRO JOBISTE CON MAS JOBS SOLO 3 EN ACTUAL https://es-jobs.about.ikea.com/buscar-trabajo
+
+21/10/2022 
+
+204267, 188016  preguntarlo mañana : por que marca reprocess?
+
+
+************************************************************
+jueves 20/10/2022
+178199 pendiente por el empname respuesta de Daniel H
+
+
+************************************************************
+casos viejos:
+
+176061 quedo pendiente porque el jobsite ya no abria
+46758 estaba en wo sin arreglar
+213704 agregarle los benefits, se reindexo el jobdesc
+
+73344 stuck arreglado hoy
+141792
+
+3226477702
+
+
+
+///////////////////////////  HORA DE FIN PARA REVISAR EN LA TARDE: /////////////////////////////////
+160647 9:41 am
+
+187353 11:17  NO ACTIVA LOS JOBS?
+
+
+
+//////////////////////// TODO LO QUE ESTABA EN WOI
+231487
+224151
+	215054
+202486
+	191836
+188382
+	184222
+183614
+178199
+178030
+	167064
+160675
+	156041
+147456
+73344
+18517
+9281
+
+
+
+//////////////////////// TODO LO QUE ESTABA EN WOI
+
+
+
+[strategy: WIC] add validations by location, add validations to clean description,   [HQ: fontaine, Rhône-Alpes],spider is being observed to evaluate and correct
+[strategy: WIC] add source location, work in html errors
+HTML ERROR
+[strategy: WIC] was edited by other indexer Oct 10, 2022, boo errors and no location, info last editor amilder.ospina
+[strategy: WIC] QA PPC IN Sep 16, 2022
+[strategy: WIC] add validations in jobdesc, and extract, The behavior of the spider is being observed to evaluate and correctSalary variates in the jobs, about number and descriptions.The jobdesc are short 
+[strategy: WIC] validation to date,add validations in jobdesc by vars, add ,  spider is being observed to evaluate and correctMigrate, multilink 
+[strategy: WIC] work in locations, clean numbers, add validations in jobdesc by vars, add validation to date,  spider is being observed to evaluate and correct, has ppc ticket in  Feb 12, 2021
+[strategy: WIC] change do while by pass_it, work in no white pages, clean numbers, add validations vars,  is being observed to evaluate and correct, 
+[strategy: WIC] was edited by other indexer [  Oct 11, 2022 ],  info last editor ( mary.doria) :  jobdata errors   ;
+[strategy: WIC] verify loc, add lines to clean jobdesc, add elements in array remove selectors,  is being observed to evaluate and correct, 
+[strategy: WIC] add validation in jobtype, add elements in array remove selectors,  Is in observation by correct errors 
+[strategy: WIC] was edited by other indexer [  Oct 10, 2022 ],  info last editor ( daniel.serna) :  insert problems and jobdata errors   ;
+[strategy: WIC] is ppc, You do not have permission for apply spiders. This feedCode can only be edited by some users.
+[strategy: WIC]Type of Review:
+[strategy: WIC] add validation in dateposted_raw, add elements in array remove selectors,  Is in observation by correct errors
+[strategy: WIC] verif no locations, add validation in dateposted_raw, add elements in array remove selectors, The behavior of the spider is being observed 
+[strategy: WIC] stuck, change do while by pass_it, add validations is being observed to evaluate and correct,  clean lines in jobdesc
+[strategy: WIC] verif no locations errors, add validation in vars add lines to cleean https, www, etc, in jobdesc, The behavior of the spider is being observed 
+[strategy: WIC] work in jobdata errors, and no locations, clean get description , extract location in step jobdesc, is being observed to evaluate and correct, 
+[strategy: WIC] work in no locations, add validation in source_jobtype Is in observation by correct errors 
+[strategy: WIC]work in stuck,  work in white page text, add validation in vars, is in observation by correct errors. 
+[strategy: WIC]work in locations, add validations in dateposted_raw and empname, add lines to clean jobdesc The behavior of the spider is being observed 
+[strategy: WIC]work in locations, add validations in vars, add lines to clean jobdesc  htpp, www, @ etc, The behavior of the spider is being observed 
+[strategy: WIC]add validations in vars ,dd lines to clean jobdesc  htpp, www, work in locations, , a, @ etc, Is in observation by correct errors 
+[strategy: WIC]add lines to clean jobdesc  htpp, www, work in locations, , a, @ etc, Is in observation by correct errors 
+[strategy: WIC]add lines to clean jobdesc  htpp, www, work in locations, , a, @ etc, add validations in aditional vars, Is in observation by correct errors 
+[strategy: WIC]work in location has more than 100 characters, add lines to clean jobdesc  htpp, www, work in locations, , a, @ etc, add validations in aditional vars,  is being observed to evaluate and correct,
+[strategy: WIC] add lines to clean jobdesc  htpp, www, work in locations, , a, @ etc, add validations in source_jobtype ,add elements in array remove selectors, The behavior of the spider is being observed 
+[strategy: WIC] work in stuck, clean unnecesary getDescription, extract vars in step jobdescription,  Is in observation by correct errors 
+[strategy: WIC] add lines to clean jobdesc  htpp, www, work in locations, , a, @ etc, add validations in source_jobtype ,add elements in array remove selectors, The behavior of the spider is being observed 
+[strategy: WIC] fix some errors occurrency in location "," add lines to clean jobdesc  htpp, www, work in locations, , a, @ etc, add validations in source_jobtype and .dateposted_raw ,add elements in array remove selectors, The behavior of the spider is being observed 

@@ -1,0 +1,64 @@
+Para definir si el scanid presenta alguno de los 3 valores en “Jobs Stats Error”,
+se propone realizar un promedio de las últimas 3 corridas consecutivas en producción.
+Así se verifica si el valor de los jobs enviados a inactivar, insertar o actualizar
+supera el 30% promedio de la cantidad de jobs crawled en las mismas corridas.
+
+
+
+Cantidad considerable de jobs new en cada corrida, NO ES LA MISMA CANTIDAD COMO EN REINDEX, ESA 
+ES UNA DIFERENCIA.​ El spider no cae en error pero si provoca reinsercion de jobs
+Reinsert: intentos de inserción de jobs en cada corrida.​
+
+
+Reinsert: Indica que se está enviando una cantidad considerable de jobs
+a insertar (new). Si se envían muchos a insertar y no existe una cantidad
+proporcional yendo a Old, por tanto, están siendo filtrados o cayendo en
+algún tipo de error luego en Insert Jobs. O hay un problema de inserción
+de los jobs por parte del sistema.
+
+
+Jobs Error Log
+Revisión: The Pulse​ (status active, jobs stats error: reinsert)
+Análisis: Crawl History y Jobs Error log
+
+Identificar que esta causando que los jobs no puedan insertarse
+Hace cuanto se corrió ese caso?
+¿En el step extract se obtuvo correctamente el title, location y url?
+¿Se realizó la extracción de la descripción?
+¿El get jobdata está en no?
+Presenta problemas de insert Jobs?
+REVISAR QUE SI ESTA EXTRALLENDO BIEN EL JOBDATA. si cuando hace la
+corrida el jobdata falla no se insertan los jobs y cada que corre 
+intenta nuevamente hacer la inserción de los jobs. por eso causa 
+reinsercion.
+
+ALGUNAS CAUSAS:
+- no esta extrallendo la descripción.
+- Error jobdata
+- Empty location
+- location
+- Empname Error
+
+Jobid. 
+
+¿Qué es el jobid  y cómo se compone? 
+Es una composición o combinación de diferentes valores el cual nos da como resultado
+un identificador único para cada trabajo dentro de nuestra BD. 
+
+Anteriormente en neuvoo: El job id se construyó basándose en toda la información que había disponible
+ en el extract, concatenando y encriptando todas variables del arreglo job. 
+y en ciertas ocasiones para evitar reindexaciones se setea el jobid desde el spider. 
+
+job.jobid = MD5(job.title+job.location+job.temp).toString(); 
+
+Siempre intentamos evitar colocar variables que cambien, cuando tenemos casos de reindexación en su 
+mayoría la url puede contener variables de sesión, seteando el código del jobid se evita que sesión
+inactiven trabajos y se inserte el mismo job siempre como new. 
+Ahora en talent: El jobid se compone solamente de estos campos: Título, location, empname, scanid y feedcode. 
+información suministrada por DEV: 
+“Se usará el nuevo esquema de generación de Ids: 
+Valores únicos para identificar un job como nuevo: título y location Van a comenzar
+a aparecer muchos duplicados Tendremos menos jobs como nuevos-viejos y tendremos más jobs como update” 
+¿Para qué nos sirve el jobid ? 
+Nos sirve para identificar como único un trabajo dado, posterior a ello,
+ poder clasificarlo como un trabajo nuevo, viejo, error ,reactivado o actualizado. 

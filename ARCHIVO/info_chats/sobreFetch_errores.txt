@@ -1,0 +1,17 @@
+Desde que inciamos a trabajar con la metodologia fetch, he notado
+ -seguramente como muchos- que en la mayoria de casos, si se tiene un 
+ error en el codigo, este error se muestra, y la ejecucion del spider no 
+ se detiene como deberia. Por el contrario, se interrumpe la ejecucion y 
+ el spider continua, mostrando en la mayoria de casos 0 jobs nuevos y 
+ agotando los intentos (cuando se hace el test completo) de extraer mas 
+ jobs.Esta situacion fue escalada al Tech team, quien investigo y
+  posteriormente reparo dicho error. Y tambien nos hizo una correccion 
+  (a mi en este caso con el codigo que envie) y es que, la funcionalidad 
+  del Try-Catch es la que genera este tipo de comportamiento, y para detener
+   la ejecucion requerimos realizar un comando "throw" en el espacio del 
+   error, de esta forma:Permitiendo entonces que el spider se detenga como
+    debe, y muestre el error correspondiente en la consola, que es el 
+    comportamiento esperado.Espero esto les ayude, actualicen sus plantillas 
+    de Fetch, y se motiven a utilizar este metodo de indexacion cuando les
+     sea posible o lo requieran. Les deseo a todos un feliz resto de 
+tarde.

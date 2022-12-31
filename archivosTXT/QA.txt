@@ -1,0 +1,19 @@
+■ Establecer un número de página fija  como condición de parada.    
+■ Waits  mal configurados (selectores incorrectos o milisegundos).  
+■ Alterar información en cualquiera de las variables.   
+■ Establecer cantidad fija de jobs esperados.   
+■ Modificar las descripciones (excepción: reglas de QA).    
+■ Activación innecesaria del "waitForPageLoadEvent" o "waitForResources".   
+■ Captures sin comentar en spider activado.     
+■ Logo incorrecto o con calidad deficiente.     
+■ Feedcode con mayúscula, doble guión, simbolos números o espacios.     
+■ Empname incorrecto o con información innecesaria.     
+■ Reindexación.     
+■ Extración incompleta de jobs.     
+■ Boo-e o stuck.    
+■ Extracción de variables incompleta/incorrecta.    
+■ Omisión de multilocation.     
+■ Omisión de dev comment en situaciones que lo ameritan.    
+■ Inland con más de 300 jobs o excesivo tiempo de ejecución.    
+■ Button more con excesivo tiempo de ejecución.     
+■ Uso inadecuado del job fantasma.  

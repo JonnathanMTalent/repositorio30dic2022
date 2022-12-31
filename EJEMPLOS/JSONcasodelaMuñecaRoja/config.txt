@@ -1,0 +1,32 @@
+{
+    "options": {
+        "inactivateJQuery": false,
+        "ignoreLoadErrors": true,
+        "waitForResources":  false,
+        "waitForPageLoadEvent": false
+    },
+    "noimage": true,
+    "skipResources": true,
+    "noUnnecessaryResources": true
+}
+
+var boo = new Boo(
+	{
+        viewportSize:{
+	        width:2048, height:1500
+	    },
+	    pageSettings:{
+	    	loadImages:  false,
+	        loadPlugins: false,
+	        XSSAuditingEnabled: false,
+	        webSecurityEnabled: false
+	    },
+	    verbose:true,
+	    timeout: 999999999999999999999999/*,
+	    logLevel: "debug"*/
+	}
+);
+boo.userAgent("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
+//boo.out.fast_debug = true;
+boo.out.show_remote_msg = 0;
+//boo.out.jobs_per_page = 100;

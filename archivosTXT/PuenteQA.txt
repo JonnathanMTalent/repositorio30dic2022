@@ -1,0 +1,51 @@
+Casos con Puente QA			El puente QA fue un servicio que se usaba en Boo 2 y Boo 3.1 para evitar bloqueo de nuestros server y poder realizar la extraccion de contenido. Un Proxy.									
+			En los actuales momentos no esta funcionando y existen casos que aun lo usan y deben Migrarse a Talent para intentar indexar dichos casos sin usar el Puente QA									
+												
+												
+Instrucciones		"1ero Mirar en que version se encuentra el Spider. Si esta en Boo 2, validar si el caso ya se encuentra indexado y si el homepage y jobsite estan disponibles, 
+"										
+		Si estan disponibles inactivar el scanid en boo 2, y crear un scanid nuevo en Dynamic validar empname y feedcode para que cumpla los lineamientos actuales.										
+		Si el caso esta en boo2 y el homepage y jobsite ya se encuentran indexados o no estan disponibles, entonces inactivar el caso										
+		Si el Spider esta en Boo 3.1 Migrar el caso a Dynamic.										
+		2do - Migrar a Dynamic.										
+		3ero - Probar si funciona sin puente de QA.										
+		4to - Si no se puede indexar dejar dev comment "QA bridge required" y dejar con status en WOI en Talent. y Migrate To talent en neuvoo										
+		5to Si el caso se encuentra migrado a Talent verificar que no tenga configurado el puente QA: 				http://boo.neuvoo.com/service/get_fgc.php?url= Para Boo 2 y http://index01.neuvoo.com/service/get_fgc.php?url=	
+
+
+		PUENTE DE QA:
+        https://es.imgbb.com  GUARDAR IMAGEN EN UNA URL.
+
+
+		1) En scan id overview ver  en que version se encuentra
+		2) Buscar el feet code para ver si existe otro scan id asociado.
+		3) Abrir el feet code para ver los scan id asociados.
+		4) Verificar si ya estaba en Dinamic en scanid antes de overview.
+		5) Abrir el homepage y el jobsite, ver si existe.   Buscar si existe otro jobsite o homepage nuevo en linkedin
+		6) mirar si ya esta indexada la url en la ruta especial para eso.
+		LINK PARA VER SI YA INDEXARON LA PAGINA
+        http://index02.neuvoo.com/dash/class/portfolios/async.php?action=get-scanids-by-jobsiteurl-fragment&debug=1&fragment=
+		7) Ver si abre el jobsite sin el puente de QA.
+		8) Ver si esa ruta ya asi del jobsite ya esta indexada.
+		9) -si esta en boo2 y es indexable, inactivar y crear un scanid nuevo. 
+		   -si esta en boo3 y es indexable, migrar
+		10)inactivar en el spider boo segun la version, cambiar estado a inactive.
+		11) comment [stratagy: QA bridge, jobs indexed in scanid: ]		ANTIGUO SCAN id.
+		    -comment [stratagy: QA bridge, indexed before in scanid: ]	NUEVO scanid.
+		12)en scanid creamos un nuevo spider en explore scanid --> create spider
+		13)Indexarlo ahi sin puente de QA. usar el mismo feetcode organizado.
+		14)Verificar si funciona sin el puente de QA.
+		15)	Si no se puede indexar dejar dev comment "QA bridge required" y dejar con status en WOI en Talent. y Migrate To talent en neuvoo										
+		16) tiempo de jobdata menor a 10s, evadir fecha relativa si la hay,y sacar la fecha de un taq o de un atributo, si tiene jobdata con llamado de ajax, si tiene json con json,
+		17) si va a ats buscar el nombre de la empresa y del ats en google haber si da la pagina.
+		18) si se creo scan id nuevo:organizar la cantidad de jobs que trae en company overview.
+
+        [stratagy: QA bridge, 06/06/2022 ] old scanid(), new scanid(),
+		version voo:() ,scanid asociado ():  , in Dinamic ? (), 
+		found?(): homepage(), 
+		found?(): jobsite(),  
+		jobsite was indexed before ?(),
+		QA bridge was necessary?(),
+		innactivated "boo2"(), or migrated"boo3"? (),
+		indexed?()-->status "WOI-boo3"()-->"QA bridge required" or "Inact-boo2"(), 
+		RuntimeAvg:(), company overview was actualized?();

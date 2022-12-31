@@ -1,0 +1,11 @@
+Que es? ​
+
+Spiders que  terminan con error en sus corridas​
+
+Donde Revisar?​
+Crawl History​
+Jobs Error Log​
+
+Como Corregir?​
+Boton Kill ES Error​
+Código/configuración de spider

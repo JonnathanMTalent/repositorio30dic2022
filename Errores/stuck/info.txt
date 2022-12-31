@@ -1,0 +1,26 @@
+
+STUK SENCILLO:
+Que es?​
+Son casos que tienen status error en las 3 ultimas corridas.​
+
+
+Donde revisar?​
+Crawl History
+
+
+STUCK BY SISTEM:
+Que es?.​
+
+*Status que se genera debido a sistemas de monitoreo (manual/automático) 
+que notifican que un spider está presentando problemas: en la inserción 
+de sus jobs, 
+
+*spiders que fallan en corridas simultaneas, porque tarda más
+ de 4 horas en correr, por crear muchos jobdatas
+
+cuando el stuck es porque el jobsite esta en 0 jobs, hay que darle 
+killes error y debe seguir corriendo normalmente.
+  -revisar si hubo un cambio en los selectores y por eso no 
+   se esten extrallendo los jobs.
+  -revisar el homepage o buscar otro jobsite donde si hayan jobs. 
+   si no se encuentra entonces hacer lo anteriormente mencionado. 

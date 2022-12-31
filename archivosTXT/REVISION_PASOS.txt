@@ -1,0 +1,247 @@
+
+PASOS: 
+
+1) Lectura e interpretación del ticket.  si existe duplicado el spider
+
+ 2) (Edge)verificar scan id en: 
+          LEGACY:
+                ult edicion,
+                migrado?, 
+                estado boo y Dinamic, 
+
+          SCAN IDS-->Jobs Error Log:
+                (lineas con error), 
+
+          CRAWL HISTORY:
+               verificar metricas
+               kill es error
+
+          the pulse:
+              metricas no mas de 10 seg
+
+ 3) (Mozilla)Abrir editor con el scanid, (crhome) abrir la web jobsite(jobsite, jobdescription)
+
+    3.1) (Crhome)Se reviso cada página para identificar: 
+    
+    ** TIENE JSON?  ("inactivateJQuery": true,)
+    ** Tipo de paginacion
+    ** Tipo de url, variable de sesion?
+    ** Tiene iframe
+    ** Tiene Ats
+    ** (( VERFICAR EN LOS LINK DE REVISION )) si existe duplicado el spider
+     
+     -dar click en aplicar (ver tipo de aplicacion: pdf, ats,...)
+     -logo
+     -Cantidad de jobsexpected
+     -si tiene Ats  (Buscar plantilla del Ats)
+     -Company tipe
+     -feed type
+     -Class
+     -jobsite correcto
+     -Empname
+     -Feedcode-Empcode
+    - si existía pagination o no,
+    - variables a extraer
+    - info existentes 
+
+
+4) (Mozilla)Se abrio cada scanid en: 
+
+   -Boo3.0 
+   -Dinamic 
+   -Scanids(legacy)
+   -Jobs Error
+   -CRAWL HISTORY
+   -The Pulse
+
+5)  se verifico para cada scanid en Boo3.1 <--> Dinamic:
+
+  - logo 
+
+  - ats (link de vinculacion)
+
+  - extract: 
+          (test)
+          (consola)  
+          (limpiezas)
+          (selectores)
+          (esperas) 
+          (Variables)
+          (formato de variables):
+                 job.title;   (limpiar)
+                 job.url;     (variables de Sesion?, armada?, funciona?)
+                 job.reqid 
+                 (multilocation)  ciudad,estado,pais
+                 (dateposted)     mm/dd/aaaa
+                 job.dateposted_raw;  mm/dd/aaaa
+                 job.dateclosed_raw   mm/dd/aaaa
+                 experience_required
+                 job.source_location; //location sin editar;
+                 job.source_empname;
+                 job.source_jobtype; //Full-time, Part-time, Temporary, Permanent;
+                 job.source_salary;
+                 job.source_empname;
+                 job.experience_required
+                 job.logo = elem.querySelector('').getAttribute("src").trim();
+
+  - BeforeExtract:
+        (Esperas)
+
+  - pagination:
+          (test)
+          (esperas)
+          (consola)
+          (no pagination.. si aplica)
+
+  -BeforePagination:
+          (esperas)
+
+  - si aplicaba el jobdescription 
+          (test)
+          (consola)
+          (Variables) 
+          (limpiezas) 
+          (esperas)
+          (Run time Avg)
+
+  -BeforeJobdesc:
+          (esperas)
+
+  - Spider test: 
+         (Kill es error)
+
+  - Config:   
+           (esperas)
+           (Cambiar estado en voo y/o dinamic)
+           (comentarios)
+  
+
+
+  
+
+6)Se comparo la configuración de Boo3.1 respecto a Dinamic para cada Scanid 
+
+7)se valido los 3 steps aprobados para la migracion.
+
+7)Se realizaron correcciones de código en selectores, limpiezas en títulos y jobdescription y se hizo adición del step pagination no pagination. 
+
+7)Se verifico que la migración estuviera correcta en legacy
+
+  
+
+8)Se procedio a cambiar el estado de Boo a migrated to talent y de Talent a Active. 
+
+  
+
+9) Se coloco tanto en los coments de Boo como los de Dinamic y los del Archivo de excel los coments con el formato indicado en inglés.
+
+  
+
+10)Se verifico la forma como subían los datos a la herramienta. 
+
+11) modificar en el COMPANY OVERVIEW los expected jobs.
+
+los coments fueron:
+
+******************************************************************************************************
+******************************************************************************************************
+******************************************************************************************************
+******************************************************************************************************
+
+
+MIGRACION DESDE CERO BUSCANDO ROJAS Y AMARILLAS:
+
+0) abrir dos ventanas de edge
+
+1)filtrar EN EL CL:
+
+Owner: NOMBRE,, status: active_open... type:organic....country: united_states 
+
+ 
+
+2) buscar la roja 
+
+3) dale click en el empname llegamos al company overview 
+
+4) en feed sources damos click llegamos al feed code overview 
+
+5) bajamos hasta donde dice scan id ese es el que vamos a buscar en el legacy, y abrimos en nevoo 
+
+NOTA: Los campos “LoadPageTextTimeout”, “LoadPageResourcesTimeout” y “LoadPageTimeout” en la pestaña Scanid Congif son campos
+ de visualización, estos no pueden ser modificados.
+
+
+************************************************************************************
+************************************************************************************
+************************************************************************************
+
+
+REVISION FINAL:
+
+-Estatus en scanid_legacy   neuvoo: migrated_to_talent   TALENT: active.
+-comentarios bien puestos en dinamic y neuvoo.
+-en el company overview el jobsexpected en verde.
+-en el Crawl history todo en verde.
+
+
+
+Filtros:
+
+
+
+Titulos:
+-Limpiar caracteres extraños en los Titulos.
+-Limpiar informacion que ya se extrajo (fechas,etc) del titulo.
+-verificar que el titulo no este generando que el sistema marque como job repetido si no es asi.
+
+Locaciones:
+-locacion en formato  ciudad, distrito, país.
+-limpar caracteres extraños de las Locaciones.
+-cambiar info de locacion (como remote, house,) por el  headquarters.
+-verificar la multilocation si existe;
+
+otros:
+-Revisar uso inadecuado del job fantasma. 
+-cambiar si se establecio cantidad fija de jobs esperados, por variable.
+-Logo incorrecto o con calidad deficiente. 
+-Feedcode con mayúscula, doble guión, simbolos números o espacios.
+-Empname incorrecto o con información innecesaria. 
+
+Crawl history:
+  -Stuck: Spiders en las cuales sus ultimas 3 corridas dieron error o terminaron unfinished
+  -Reprocess: Casos que en cada corrida generan gran cantidad de updates. 								
+  -Reindexación: Cuando en cada corrida la cantidad de jobs new es igual a la de jobs old.	
+
+Paginacion:
+-revisar esperas en BeforePagination, eliminar de ser posible.
+-cambiar condicion de parada si se establecio número de página fija  como condición de parada.  
+
+Description:
+-No Modificar las descripciones, excepción: reglas de QA. 
+-revisar que no se saquen fechas del jobdescription.
+-verificar si se puede extraer info del script json y hacer el jobdata en el extract.
+-revisar el run time AVG menor a 10000 ms.
+
+
+Esperas:
+Waits  mal configurados (selectores incorrectos o milisegundos).  
+Activación innecesaria del "waitForPageLoadEvent" o "waitForResources". 
+Captures sin comentar en spider activado. 
+
+variables:
+-Alterar información en cualquiera de las variables. 
+-revisar que se saquen todas las variables posibles
+-revisar el formato de las variables.
+
+
+Fechas: 
+-verificar el formato de fecha en orden dd/mm/aaaa
+-verificar que si tenga los ceros en la fecha correctamente
+-validacion de trabajos vencidos para no hacerles push?
+
+-Extraer las fechas siempre desde el extract.
+-Eliminar la funcion DateAgo y reemplazarla por otra forma de extraer la fecha
+
+EDICION DE SCAN ID:
+Pero un indexer siempre debe respetar si tiene menos de 72 horas de ser editado si está en status working on it 
+o si está active y no presenta ningún tipo de error no debería editarlo en esa semana

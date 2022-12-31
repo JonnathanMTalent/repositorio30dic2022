@@ -1,0 +1,64 @@
+[4:35 p. m.] Madelen Brito Carrera¡Importante!Inactivar Scanid
+    
+Buenas tardes equipo General, espero que se encuentren muy bien. Feliz jueves smile
+
+
+Quiero compartir con ustedes una información con respecto a la inactivación de un determinado scanid. 
+
+
+Una buena práctica es que cuando nos soliciten inactivar un determinado scanid, también debemos inactivar sus trabajos.
+
+
+¿Cómo inactivamos los trabajos de un determinado scanid?
+
+ 
+R: Desde la vista Explore Scanids, en la tabla principal de resultados, en la columna Actions, al hacer clic en el botón Scanid Info y desde la vista ScanID Overview, al hacer clic en el botón Edit Scanid, en la pestaña Admin Jobs encontrarán el botón Inactivate Jobs, que nos va a permitir inactivar los trabajos de un determinado scanid, es decir, los trabajos pasan de tener FA=1 a FA=0.
+
+
+Vista Explore Scanids
+
+
+
+
+
+Vista ScanID Overview
+
+
+
+
+Actualmente contamos con scanids migrados de Neuvoo a Talent, el estatus de estos scanids son: inactive en neuvoo y migrated to talent en Talent, o viceversa. 
+
+
+
+
+
+Cuando nos soliciten inactivar un scanid, debemos: 
+
+
+
+
+
+
+	
+Buscar el scanid a inactivar en Explore Scanids y/o Explore Scanids (Legacy).
+	
+Verificar las columnas Status Neuvoo y Status Talent.
+	
+Inactivar el scanid tanto para neuvoo como Talent.
+	
+Agregar el comentario con el motivo de la inactivación, fecha y estrategia (Tickets, estrategia emergente, mantenimiento) para ambos neuvoo y Talent.
+	
+Inactivar los trabajos.
+	
+Verificar que el Num Jobs en la vista ScanID Overview muestre cero (0) trabajos para ambos neuvoo y Talent.
+
+
+Cualquier duda y/o sugerencia quedo atenta smile
+
+
+
+
+
+
+
+(6 Me gusta)<https://teams.microsoft.com/l/message/19:f56158104016451fa5b596d7923de299@thread.skype/1654810506218?tenantId=a7b464e0-870c-43fc-8e72-6de7aeddfcd5&amp;groupId=88602b83-22c3-408d-8774-0dfd20c44424&amp;parentMessageId=1654810506218&amp;teamName=Contenido&amp;channelName=General&amp;createdTime=1654810506218>

@@ -1,0 +1,82 @@
+1) ir a Action, tomar la url del homepage y buscar el jobsite.
+  -cuando sean jobboard mejor preguntale a Daniel antes de indexarlos
+
+
+
+2) revisar que sea indexable:  probar un job para revisar:
+        
+        -VERIFICAR QUE TENGA 3 PARAMETROS MINIMO: 1..TITULO  2.. LOCACION   3..URL   -->DESCRIPCION 
+        -QUE NO SEA: PDF, Word, Excel, JPG, PNG, etc.
+        -Black list, (?) 
+        -que No  tengan   contenido   discriminatorio   y   vocabulario inadecuado 
+        -Nosotros desde organico no indexamos jobboard privados de usa,  solo privados que no son de usa y publicos si  se puede de todas , incluido usa. 
+        -Tampoco indexamos jobboard  agg, col, y mix lo hacen en ppc 
+        -Los que mas indexamos son car, pla y el jobboard pbr(pribado) 
+
+3) BUSCAR EL JOBSITE, VERIFICAR SI YA HA SIDO INDEXADO .
+        -REVISAR QUE ESTE BIEN LO SIGUIENTE:
+        -EL FEEDCODE 
+        -IR A FEEDCODE Y TRATAR DE ENCONTRAR COINCIDENCIAS. 
+        -SI EXISTE DARLE CLIK AL FEEDCODE Y LUEGO AL SCAN ID EN EL OVER VIEW,
+         BUSCAR SU HEADQUARTER = LOCACION PRINCIPAL, LUEGO VAMOS A CLASIFICARLA EN EL OVERVIEW,
+         LLENAR COMENTARIOS Y TODO 
+
+
+
+5)MIRAR EL HOMEPAGE 
+LEER SU ABOUT 
+BUSCAR EL EMPNAME DE ACUERDO A EL PATRON QUE MAS SE REPITE 
+GENERAR FEEDCODE: 
+        1. Pasar todas las letras del empname a minúsculas  
+        2. Eliminas caracteres especiales  
+        3. Reemplazas espacios por guiones (-) 
+
+FEED Type:  Esta relacionado con la forma como se comporta la pagina respecto a sus jobs 
+                 - establecer el feetType:
+        1.CAR (Careersite)
+        2.ATS (ATSFeed)
+        3.PUB (PublicBoard)
+        4.PLA (Placement)
+        5.PRB (PrivateJobboards)
+        6.INT (Intermediary)
+        7.GIG(Gigeconomy)
+        8.AGG (Aggregator)
+        9.COL (CV & Datacollector)
+        10.MIX (MixFeed)
+
+COMPANY TYPE: Relacionado a lo que se dedica la compañía 
+        -Company.
+        -Jobboard.
+        -Placement.
+        -Gig.
+
+
+
+SI LA COMPAÑIA SE VA A CREAR DESDE CERO SE VA AL FEED CODE Y SE DA EN EL BOTON ADD NEW EN LA PARTE SUPERIOR DERECHA Y SE LLENAN LOS DATOS 
+
+EN EL SPIDER :
+        -Le damos en el + y agregamos los datos que pide , el spider automaticamente crea el feedcode el cual hay que revisar 
+        -Poner el status en workin on it ,,, cuando termine ponerlo en active 
+        -EXTRER EL LOGO DE LINKEDIN 
+        -Recargar con cookies 
+
+EXPLORE FEEDCODES:
+        -Feedcode es lo mismo que el empcode. Primero se crea en spider y luego en el explore feedcodes,
+        el empname va a ser el mismo que aparece en linkedin 
+        (https://talent.com/private/tools/jobs/pageFeedcodeList.php)
+        -Se crea el mismo feedcode que en el spider aparce como empcode,
+        en el exprore feedcodes Feedcode (talent.com) 
+
+EN EL CL:
+        -CREAR EL EMPNAME en el CL damos click sobre la compañía y luego estando en el explore companys 
+        (COMPANY OVERVIEW)le damos clickpara entrar en edit company y llenamos los datos en el edit 
+
+
+iNDEXAR:
+        -Si es un ats entonces se puede buscar la plantilla con la que ya se habia indexado 
+        -Si no se encuentran hubicaciones colocar el headquarters y anotar en los comentarios 
+        -Modificar el temp solo para actualizar feedcodes, empnames o forzar que se corra la descripcion 
+
+
+
+

@@ -1,0 +1,17 @@
+¡Importante!Muchachos una información importante para todos.Cuando hacemos una revisión de una indexación parte 
+de nuestras revisiones es validar el jobsite configurado en el scanid. Esto lo podemos hacer de varias maneras:Desde 
+el scanid overview dando click en el link "jobsite", esto nos permitirá evaluar si dicha url nos lleva al listado de
+ jobs.Desde el "Indexing Tool", en el "scanid info" en el campo "jobsite url"Pero tengan en cuenta un dato muy importante:Si
+  la url del jobsite da error, del tipoURL not foundJobs not foundy cualquier otro mensaje que nos indique que no se consiguio 
+  la url o no existen jobs, siempre siempre siempre (me perdonan la repetición) deben buscar desde el Homepage la existencia de 
+  una nueva área en la pagina donde se muestren los jobs. No hacerlo es un grave error en las tareas de analisis e inspeccion 
+  previas a la indexacion al hacer el mantenimiento correspondiente.Incluso si el Homepage falla, debemos validar que este
+   no haya cambiado.Tengan en cuenta tambien que al realizar un mantenimiento de un caso en stuck, no solamente deben concentrarse 
+   en el caso que esta en stuck, me explico, si existen mas scanid asociados al feedcode relacionado al scanid, por favor, como buena
+    practica revisen los demas scanids, porque asi garantizaremos que todos los jobs asociados al feedcode extraeran la informacion 
+    correctamente o tambien evidenciaremos si por error existen diferentes scanids que estan extrayendo jobs desde una misma fuente,
+     es decir jobs duplicados.Presten atención a los dev comments del spider, hace una semanas atrás un compañero del Bloque, nos recordó
+      limpiar del Dev comments los mensajes que el sistema automaticamente agrega cuando cambia el status a stuck. Este comentario 
+      nos da evidencia de lo ocurrido y nos ayuda a determinar la causa, por ejemplo, miren este caso, dos veces en stuck por jobdata
+       avg, cuando se trabajo por ultima vez, no se limpio el mensaje y fijense que nuevamente cayo en stuck por el mismo motivo. 
+       Recuerden que tenemos The Pulse que nos da evidencia de esto.

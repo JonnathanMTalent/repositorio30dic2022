@@ -1,0 +1,18 @@
+scan id : 205132
+
+
+jobsite: http://careers.mpslimited.com/#top
+
+
+
+{
+    "options": {
+        "inactivateJQuery": false,
+        "ignoreLoadErrors": false,w
+        "waitForPageLoadEvent": true,
+        "waitForResources": true
+    },
+    "noimage": true,
+    "skipResources": false,
+    "noUnnecessaryResources": false
+ }

@@ -1,0 +1,23 @@
+196887  buen uso del get description
+
+231443  Metodo inlan de ejemplo
+
+219547  buen ejemplo de json con paginanacion de my workday
+
+54164  json muy vacano de my workday jobs
+
+182663 tiene un jobdescription para estudiarlo
+
+26830  passit en extract para la paginacion
+  22964   ejemplo excelente de json que extrae el jobdatada y dateposted_raw del extract
+
+  137178  icims no json con paginacion por next
+
+  211528 USAR PLANTILLA DE MYWORKDAYJOBS
+
+  253112 JSON TALEO 
+
+  144129 etiqueta pre
+  93130 otra etiqueta pre
+
+  106032  ejemplo de multilink extrayendo las urls con passit desde la misma pagina

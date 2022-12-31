@@ -1,0 +1,94 @@
+MI SPIDER DE PRUEBA:  http://index01.neuvoo.com/boo3-web/spider/add-step.php?style=dark&id=231443
+1. VERIFICAR QUE EL SELECTOR INICIAL O UNIVERSAL SI ME ESTE TRAYENDO LA CANTIDAD DE JOBS QUE SON ,, NO MAS ,, NO MENOS
+
+2. QUITAR LAS ETIQUETAS DE COLORES Y ATRIBUTOS EN LOS SELECTORES PARA EVITAR QUE CUANDO HAGAN UN CAMBIO ESTO DAÑE EL CODIGO
+
+3. COMENTAR MUY BIEN EL CODIGO
+
+4. PONER EN LOS MENSAJES TODOS LOS INCONVENIENTES QUE TENGA EL CODIGO PARA QUE NO ME HAGAN UN QA
+
+5. VERIFICAR MUY BIEN QUE SI CAMBIE EL JOBSITE PARA NO PERDER TIEMPO 
+
+6. SI NO HAY FORMA DE ARMAR LA URL USAR LA PLANTILLA IMLAM
+
+7.AL ABRIR ARCHIVOS XML NO DEJARLOS CARGAR DEL TODO PORQUE BLOQUEA EL PC
+
+8) EL FORMATO DE FECHA TALENT ES EL FORMATO AMERICANO  MM/DD/AAAA
+
+9) SI NO TENEMOS JOBSITE NO TENEMOS QUE CREAR UN FEEDCODE
+
+10) VARIABLES: 
+
+job.title;
+job.url;
+job.reqid;
+job.source_location; //location sin editar;
+job.location; //location con formato correcto "Ciudad, Estado, Pais(US)";
+job.dateposted_raw; //formato correcto "mm/dd/aaaa" en numeros;
+job.dateclosed_raw; //formato correcto "mm/dd/aaaa" en numeros;
+job.source_empname;
+job.source_jobtype; //Full-time, Part-time, Temporary, Permanent;
+job.source_salary;
+
+11)
+
+inlan= cuando no hay forma de construir la url ni de encontrarla, solo dando click sobre la 
+xml= cuando nos dan un ticket para hacerla por un documento
+scrolbar= cuando la pagina para avanzar carga con el scrol
+   url por reqid =boton share y yel req id 
+
+
+button more= cuando uno se encuentra un boton en la misma lista que carga mas contenido y hay darle click
+scrollby= cuando sale un escrol y para que cargue la pagina hay que ir dando scroll
+inlan= cuando hay que entrar y salir de los jobs para extraer la url ya que no hay forma de armarla, no carga por pagina sino de job en job
+        en el extrac se saca la info
+jsonget= informacion por Ajax por ficheros
+jsonpost= por ajax netamente
+xml= por archivo xml
+
+12) REPLACE ALL:
+job.dateposted_raw=document.querySelector('selector').innerText.trim().replace(',',' ').replaceAll(' ','/')
+
+13)no pponer paginacion numerica
+
+MANTENIMIENTO
+
+ESTRATEGIAS : COMPANI LIST
+REVISIONES DE COMPANY CON STATUS NEW
+CADA INDEXADOR TIENE UN PAIS ASIGNADO TENEMOS ASIGNADO EEUU
+NOS CARACTERIZA LOS MANTENIMIENTOS DE LOS SPIDER, PUEDE SER POR EL JOBISITE O POR EL CODIGO, HAY QUE CORREGIR CUALQUIER PROBLEMA PARA QUE 
+EL SPIDER HAGA LA EXTRACCION DE FORMA OPTIMA, EL TIEMPO DE CORRIDA DEBE SER EL MINIMO. TRATAR DE MINIMIZAR EL TIEMPÓ DE CORRIDA.
+SIEMPRE QUE HAYA UNA DUDA CONSULATAR AL TL O AL TM
+PREGUNTAR SIEMPRE SI YA HAY PLANTILLA, SOBRE TODO CON LOS ATS
+
+14)Cuando se usa querySelectorAll('')  para que sirva el texContent.trim() hay que poner el querySelectorAll('')[1].textContent.trim();
+
+15) Cuando segenera un ciclo infinito en el pagination o infinity es que se montan los test, hay que provar primero en consola
+antes de poner el codigo en la herramienta
+
+16) titulo y locacion son las variables que determinan que un job esta duplicado, pero pueden ser diferentes
+
+17) Recordar que el jquery true puede impedir en ocaciones la extraccion de trabajos
+
+18)Cuando la pagina tiene geo localizacion puede inferir en la canttidad de trabajos o en la forma  como llegan al sistema
+   colocar este error en los comentarios, no hay solucion conocida
+
+19)Las esperas en el pagination se dan despues del return, no hace esperas de selectores 
+
+20)La sede central o HeadQurter en linkedin 
+
+21)Verficar que la condicion de parada sea real , porque muchas veces el boton solo deja de ser visible pero esta ahí,, 
+
+22)hay que verificar cual es el cambio o donde se da el cambio, muchas veces puede estar en el selector padre del boton 
+
+23) El injeck jquery puede poner lenta la extaccion, al ponerla en false puede ir mas rapido
+
+24) cuando pruebe el extract o el jobisite en la consola, recordar quitarle el inicio: var extract: , var jobsite:
+
+1. Tener en cuenta que en codigo de paginación no se usa selector de espera
+2.El feedcode de la company se esta relacionado con 2 comapanies. El company Mcdonalds de US y el company Mcdonalds de NL (https://talent.com/private/tools/jobs/pageCompanyView.php?id=107214) Esta company tiene su propio homepage y jobsite, pero esta contabilizando los mismos jobs que Mcdonalds US
+3.Donde la esta la captura del bloqueo como soporte. Como se indica en la plantilla problematic?
+4.El expected jobs deberia ser el "new Total jobs", pero es diferente.
+5.Revisar el codigo del spider, se usa el pass_it, pero no se define en ningun step. Scanid esta activando e inactivando una cantidad considerable de jobs en cada corrida.  
+6.Pendiente, por revisar. Jobs se inactivan, se puede cambiar a Fetch y filtrar jobs vencidos para que no se procesen
+7.Se puede filtrar por jobs vencidos para detener la paginacion

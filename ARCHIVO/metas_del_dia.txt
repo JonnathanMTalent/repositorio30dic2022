@@ -1,0 +1,49 @@
+
+
+MIERCOLES 25 DE MAYO DEL 2022: (10 METAS)
+
+1)  218973  SE CAMBIO EL JOBDESC   EMPNAME:Avenu Insights & Analytics  (MIRAR COMO ESTA HECHO)
+2)  151994  cambiar la paginacion
+3)  151994  se organizo la paginacion es un json con paginacion por passit 
+4)  197902
+5)  109232  se trajo el dateposted_raw desde la descripcion
+6)  22964   ejemplo excelente de json que extrae el jobdatada y dateposted_raw del extract
+7)
+8)
+9)
+10)
+
+12271
+
+JUEVES 26 DE MAYO DEL 2022: (10 METAS)
+
+1)  12271  EMPNAME: STERIS ,  EMPCODE: steris  ----ACTIVA
+2)  71618  EMPNAME: Okta, Inc.  EMPCODE: okta  ---Activa  Company Overview esta raro en 0 todo
+3)  73019  empname:Bowling Green State University  empcode:bowling-green-state-university
+4)  120941 empname: Tailored Brands   empcode: tailored-brands
+5)  19677  empname: Meritor  empcode: meritor
+6)  198421  empname: Fordham University  empcode:fordham-university
+7)  22598 weber-shandwick  Weber Shandwick
+8)  118705  Empname: Smithsonian Institution    Empcode:smithsonian-institution
+9)
+10)
+
+ //    jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+
+JUEVES 26 DE MAYO DEL 2022: (10 METAS)
+
+250992  no se encontro el empname que se hace?
+
+1)           empcode:           empname:
+2)            empcode:           empname:
+3)           empcode:           empname:
+4)           empcode:           empname:
+5)          empcode:           empname:
+6)          empcode:           empname:
+7)          empcode:           empname:
+8)          empcode:           empname:
+9)          empcode:           empname:
+10)         empcode:           empname:
+11)         empcode:           empname:
+12)         empcode:           empname:
+ 

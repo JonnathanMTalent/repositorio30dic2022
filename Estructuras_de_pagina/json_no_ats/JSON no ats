@@ -1,0 +1,124 @@
+//Extract sin category
+(function() {
+    let out = {};
+    let jobs = [];
+    out["pass_it"] = pass_it;
+    let json;
+    $.ajax({
+        url: window.origin + '/api/jobs?limit=100&page=' + out.pass_it.offSet,
+        headers: {
+            "accept": "application/json, text/plain, */*",
+            "accept-language": "en-GB,en;q=0.9,es-CO;q=0.8,es;q=0.7",
+            "cache-control": "no-cache",
+            "pragma": "no-cache",
+            "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"92\", \"Opera GX\";v=\"78\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin"
+        },
+        type: 'GET',
+        dataType: "json",
+        async: false,
+        success: function(result) {
+            json = result.jobs;
+            out.pass_it.limit = result.totalCount;
+            if (json.length > 0) {
+                msg('Hay jobs');
+                for (var elem of json) {
+                    var job = {};
+                    elem = elem.data;
+                    job.reqid = elem.req_id;
+                    job.source_jobtype = elem?.employment_type;
+                    job.title = elem.title.replace(/ *\([^)]*\) */g, "");
+                    //job.source_empname = elem?.brand;
+                    job.source_location = [];
+                    job.location = [];
+                    elem.multipleLocations ? (
+                        job.source_location.push('Multiple'),
+                        job.source_location = job.source_location.join(', ')
+                    ) : (
+                        job.source_location.push(elem?.location_name),
+                        job.source_location.push(elem?.street_address),
+                        job.source_location.push(elem?.city),
+                        job.source_location.push(elem?.state),
+                        job.source_location.push(elem?.country_code),
+                        job.source_location = job.source_location.filter(Boolean).join(", ")
+                    );
+                    job.location.push(elem?.city);
+                    job.location.push(elem?.state);
+                    job.location.push(elem?.country_code);
+                    job.location = job.location.filter(Boolean).join(", ");
+                    job.url = window.origin + '/jobs/' + elem.slug;
+                    if (elem.update_date) {
+                        job.dateposted_raw = elem.update_date.split('T').shift();
+                        job.dateposted_raw = job.dateposted_raw.split('-')[1] + '/' + job.dateposted_raw.split('-')[2] + '/' + job.dateposted_raw.split('-')[0];
+                    } else {
+                        job.dateposted_raw = elem.create_date.split('T').shift();
+                        job.dateposted_raw = job.dateposted_raw.split('-')[1] + '/' + job.dateposted_raw.split('-')[2] + '/' + job.dateposted_raw.split('-')[0];
+                    }
+                    job.html = elem.description + '<br>' + elem?.responsibilities + '<br>' + elem?.qualifications;
+                    job.html = cleanHTML(job.html);
+                    var tmp = document.createElement('div');
+                    tmp.innerHTML = job.html;
+                    job.jobdesc = tmp.textContent.trim();
+                    job.temp = 96;
+                    var joby = job;
+                    if (elem.additional_locations) {
+                        var countReqId = 0;
+                        for (let auxLoc of elem.additional_locations) {
+                            var jobx = {};
+                            jobx = {
+                                ...joby
+                            }
+                            jobx.reqid = joby.reqid + '-' + parseInt(countReqId + 1);
+                            job.location = [];
+                            job.location.push(auxLoc?.city);
+                            job.location.push(auxLoc?.state);
+                            job.location.push(auxLoc?.country_code);
+                            job.location = job.location.filter(Boolean).join(", ");
+                            jobs.push(jobx);
+                            countReqId += 1;
+                        }
+                    }
+                    jobs.push(job);
+                    out.pass_it.jobsCount += 1;
+                }
+            } else {
+                msg('No hay Jobs');
+                out.pass_it.limit = 0;
+                var job = {};
+                job.title = '5K limit reached. Ghost Job for: ';
+                jobs.push(job);
+            }
+        },
+        error: function(error) {
+            msg(error);
+        }
+    });
+    out["jobs"] = jobs;
+    return out;
+})();
+//Infinity
+(function () {
+    var out = {};
+    out["pass_it"] = {
+        "offSet": 1,
+        "limit": 0,
+        "jobsCount": 0
+    };
+    return out;
+})();
+//Pagination
+(function () {
+    var out = {};
+    out["pass_it"] = pass_it;
+    out.pass_it.offSet += 1;
+    if (out.pass_it.jobsCount < out.pass_it.limit) {
+        out["has_next_page"] = true;
+    } else {
+        out["has_next_page"] = false;
+    }
+    out["wait"] = false;
+    return out;
+})();

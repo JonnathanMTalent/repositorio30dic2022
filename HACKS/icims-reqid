@@ -1,0 +1,178 @@
+//before extract 
+(function() {
+  var out = {};
+  out.iframeSelector = "#icims_content_iframe";
+  out.iframeWaitFor = "div.iCIMS_JobsTable > div.row";
+  return out;
+})();
+
+//extract
+(function() {
+    var out = {};
+  
+    if (typeof msg == "undefined") msg = function (x) { return x; };
+  
+    var iframe_selector = 'iframe#icims_content_iframe';
+    var iframeDocument  = document.querySelector(iframe_selector).contentWindow.document;
+    var html_jobs = iframeDocument.querySelectorAll("div .iCIMS_JobsTable .row");
+    var jobs = [];
+  
+    for(var x in html_jobs){
+      if(typeof html_jobs[x] =="function") continue;
+      if(typeof html_jobs[x] =="number") continue;
+      var job = {};
+      var elem = html_jobs[x];
+      job.title = elem.querySelector(".title h2").textContent.trim();
+      job.url = elem.querySelector(".title a").href.trim();
+      job.location = elem.querySelector(".col-xs-6.header.left span:last-child").textContent.trim();
+      if(job.location.indexOf("Springboro") != -1)
+          job.source_empname="The Enclave of Springboro";
+      else if(job.location.indexOf("Mechanicsburg")!= -1)
+          job.source_empname ="The Bridges at Bent Creek";
+      else if(job.location.indexOf("Jamison")!= -1)
+          job.source_empname ="The Bridges at Warwick";
+      
+      let subtratct =  elem.querySelectorAll('dl');
+      var salary = [];
+      subtratct.forEach(a => {
+        var text = a.textContent.replace(/\&nbsp;/g, '');
+        if(text.includes('Min')) salary.push(text.split('Min').pop().trim());
+        if(text.includes('Max')) salary.push(text.split('Max').pop().trim());
+        if(text.includes('ID')) job.reqid = text.replace("Job ID","").trim();
+      });
+      if(salary.length > 0)job.source_salary = salary.join('-').trim();
+      if(!job.reqid) job.reqid = job.url.split('/jobs/').pop().split('/').shift().trim();
+      job.temp = "24022022";
+      job.location = job.location.split("|");
+      job.location.map(location =>{
+        var jobx = {...job};
+        jobx.location = location.trim();
+        jobx.location = jobx.location.split(',').shift().trim();
+        jobx.location = jobx.location.split('-').reverse().join(', ').trim();
+  
+  
+        var new_titles = [
+          {title:["RN","Registered Nurse"],new_title:["Operations Nurse"]},
+          {title:["CNA"],new_title:["Certified Nurse Practitioner"]},
+          {title:["LPN"],new_title:["Licensed Practical Nurse Assisted Living"]},
+          {title:["Caregiver"],new_title:["Personnal Caregiver", "Direct Support Professional"]}
+        ];
+  
+        for(let n in new_titles){
+          for(let i in new_titles[n].title){
+            if(job.title.indexOf(new_titles[n].title[i])>-1){
+              for(let j in new_titles[n].new_title){
+                var jobz={...jobx};
+                jobz.title = new_titles[n].new_title[j];
+                jobs.push(jobz);
+              }
+            }
+          }
+        }
+  
+        jobs.push(jobx);
+      });
+    }
+    out["jobs"] = jobs;
+    return out;
+  })();
+  
+
+  //pagination
+  (function() {
+    var out = {};
+    
+    out.iframeSelector = "#icims_content_iframe";
+    out.iframeWaitFor = "div.iCIMS_JobsTable > div.row";
+    
+    var next_page_selector = 'span[title="Next page of results"]';
+  
+    var iframe_selector = "iframe#icims_content_iframe";
+    var iframeDocument  = document.querySelector(iframe_selector).contentWindow.document;
+    var button = iframeDocument.querySelector(next_page_selector); // Loop selector
+  
+    var minAndMax = iframeDocument.querySelector('h2.iCIMS_SubHeader.iCIMS_SubHeader_Jobs').innerText.split(/Page/i).pop().trim();
+  
+    var min = Number(minAndMax.split("of").shift().trim());
+    var max = Number(minAndMax.split("of").pop().trim());
+  
+  
+    msg("Min: " + min);
+    msg("Max: " + max);
+  
+    var clickable_elem = button;
+  
+    if (min == max) {
+      out["has_next_page"] = false;
+    } else {
+      clickable_elem.click();
+      out["has_next_page"] = true;
+    }
+  
+    return out;
+  })();
+
+  //before jobdesc
+  (function() {
+	var out = {};
+  	out.iframeSelector = "#icims_content_iframe";
+  	out.iframeWaitFor = ".iCIMS_JobContent";
+    return out;
+})();
+
+
+//jobdesc
+(function() {//Dec-2020
+
+    var out = {};
+    var job = {};
+    var iframe_selector = "#icims_content_iframe";
+    var iframeDocument = document.querySelector(iframe_selector).contentWindow.document;
+    var selector  = '.iCIMS_JobContent';
+  
+    var full_html = iframeDocument.querySelector(selector); 
+  
+    for (const a of full_html.querySelectorAll('a, img, script, style, button, div.iCIMS_JobOptions, div.iCIMS_PageFooter, div.iCIMS_Logo')) {
+      if (a){
+        a.remove();
+      }
+    }
+  
+    job.html = full_html.innerHTML.trim();
+  
+    job.html = removeTextBefore(job.html, 'Position Overview', false);
+    //job.html = removeTextAfter(job.html, 'Options', true);
+  
+    job.html      = cleanHTML(job.html);
+    var tmp       = document.createElement('div');
+    tmp.innerHTML = job.html;
+    job.jobdesc   = tmp.textContent.trim();
+    job.jobdesc   = cleanHTML(job.jobdesc);
+  
+  
+    out["job"] = job;
+    return out;
+  
+  })();
+  function removeTextBefore(html, text, flag) {
+    var newHtml = html;
+    if (newHtml.indexOf(text) > -1) {
+      newHtml = newHtml.split(text).pop();
+      if (!flag) {
+        newHtml = "<h3>" + text + "</h3>" + newHtml;
+      }       
+    }
+    return newHtml;
+  }
+  function removeTextAfter(html, text, flag) {
+    var newHtml = html;
+    if (newHtml.indexOf(text) > -1) {
+      newHtml = newHtml.split(text);
+      if (!flag) {
+        newHtml = newHtml + "<p>" + text + "</p>";
+      }       
+    }
+    return newHtml;
+  }
+
+  //NOTA, ACTIVAR: waitForPageText

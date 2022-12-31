@@ -1,0 +1,19 @@
+Casos con procesamiento de jobdata >= 10 seg. ​
+
+Revisión: Desarrollo​
+
+Análisis: ​
+Test del Jobdata. Avg Run time.​
+Scanid Info Jobdata Run Time.​
+
+​
+
+ Que es?​
+Tiempo promedio que tarda en procesarse el jobdata.​
+
+Dónde Revisar?​
+Scanid-info. Valor jobdata Runtime​
+
+Como Corregir​
+Inactivar  "waitForPageLoadEvent "  , "waitForResources "​
+Evitar el uso de "wait" ni "waitFor" en before jobdescription

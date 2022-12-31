@@ -1,0 +1,32 @@
+PLANTILLA NEWS
+
+[Strategy: new- 30/08/2022] scanid()
+clasification of company ()  is ()
+because 
+ the new jobsite is:(), 
+this site has been indexed?(), 
+matches were found in the feedcode or similars: (),
+ the feedCode was creaated (no):
+ headQuarters(); source_benefits();
+the page dont have pagination is only one page
+edit company overview();
+Run time AVG:()the waits set are necessary to extract the complete information
+No location was found (HQ has been set)
+
+
+0) ANCLAR TODA LA INFO UTIL
+1) anclar Company
+2) anclar el Homepage
+3) anclar el Jobsite   ... si no se encuentra buscar en linkedln y   google
+4) ya había sido indexado? .... si: Feed-code ,, scanid. 
+4) linkedln: HQ Y ROL, hay jobs?
+
+VERIFICAR UNA VARIABLE EN EL EXTRACT Y OTRA EN EN JOBDESC
+HACER TODO EL PROCESO CON SOLO TITULO URL Y LOC ANTES DE SACAR MAS VARIABLES
+
+5) Indexar en Scanid de prueba.   ... si no func guardar y preguntar.
+6) Generar feed-code Anclar
+7) Generar scanid Anclar
+8) Pasar el scraping y run
+9) Registrar meta  Excel- visual
+10) Oraganizar datos de la Company

@@ -1,0 +1,20 @@
+Scanid inactive con jobs active: Cada vez que inactiven un spider deben tener pendiente como es el
+ proceso de inactivación. recuerden que al inactivar un spider deben inactivar sus jobs. Es 
+ responsabilidad de uds. garantizar que el scanid inactivo quede con num jobs =0 o que es lo mismo
+  todos sus jobs con flag_active=0. Un spider inactive con jobs active es contenido que aun se miestra
+
+Scanids con estatus active en neuvoo y talent, estatus migrate to talent en neuvoo y talent migrate
+ to talent en neuvoo y WOI en talent, por favor tengan en cuenta que estos estatus evitan que los spider
+  corran automaticamente, por tanto es contenido que no se actualiza.
+
+Feedcode no relacionados: un feedcode mal relacionado en una company del CL nunca hara que se refleje en
+ esa company el total jobs, por tanto son jobs que no se contabilizan y una company que se muestra en rojo.
+
+Companies del CL con detalles en su configuración, clasificaciones erroneas, campos con valores incorrectos,
+ feedttype erroneos afectan el buen estado de los portafolios que trabajamos e impacta y afecta las estrategias
+  que del CL se derivan.
+
+Stuck: recuerden que si un spider tiene 3 corridas en error/unfinished caera en stuck, si un jobdata del spider
+ demora en procesar mas de 10 segundos, hara que el spider caiga automaticamente en stuck. Por tanto deben monitorear
+  en todo momento el trabajao que va realizando de forma de evitar que estos casos en stuck se devuelvan a uds.
+   por temas de Garantía.

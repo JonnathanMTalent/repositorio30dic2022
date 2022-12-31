@@ -1,0 +1,24 @@
+Indexacion simple:
+  4 pasos:
+     -extract
+     -pagination= no pagination
+     -spider test
+     -jobDescription
+
+
+TIPOS DE PAGINACION MAS COMUNES:  (Extract, pagination, jobDescription)
+   -simple-next-page:        boton de next
+   -url pagination:          url con patron de cambio
+   -Multilink pagination:    indexar varios sitios con misma estructura en un mismo spider
+
+CONDICIONES DE PARADA:
+  -Ausencia del boton next(Ancord) o atributo disabled
+  -No existencia de jobs
+  -Comparativa con total de jobs
+
+PAGINACION POR SCROLLBAR: (Extrac, pagination:no pagination, infinite_pagination, jobDescription)
+
+BOTON MORE (infinity pag:para darle click al boton, before extract: esperas, extract)
+
+
+

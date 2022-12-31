@@ -1,0 +1,42 @@
+
+//██████╗░░██████╗
+//██╔══██╗██╔════╝
+//██║░░██║╚█████╗░
+//██║░░██║░╚═══██╗
+//██████╔╝██████╔╝
+//╚═════╝░╚═════╝░
+
+════════════════════════
+
+// █████████████████████████░░░░░░ 
+  titulo de la seccion
+════════════════════════
+[Strategy: Manteinance - May 23, 2022]add dateposted_raw,have duplicated jobs, have expired jobs, cleaned jobdesc,Migrated, Changed status in Talent and Neuvo.
+
+Changed status in Talent and Neuvo.
+cleaned waitForPageText:no
+reduce selector in extract
+reduce selector in pagination
+has expired jobs
+3 migration steps in scanid legacy
+add job.source_location="";
+clean out.pic
+have duplicate jobs
+the title is cleaned,
+deleted waits
+cleaned jobdesc
+change selector html_jobs
+the title is cleaned
+Added non-pagination 
+Changed status in Talent and Neuvo.
+
+[Strategy: Manteinance -jun 13, 2022]
+[05/23/2022] add dateposted_raw,was cleaned jobdesc, . Migrated and Changed status in Talent and Neuvo.
+
+[Strategy: Manteinance - Jun 13, 2022]
+
+//     ████████████████████████████████████████████████████████ titulo /*  
+//*/// ████████████████████████████████████████████████████████  
+
+
+

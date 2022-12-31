@@ -1,0 +1,2 @@
+1 ...ver este video del company list 
+https://talentcom-my.sharepoint.com/personal/sara_sanchez_talent_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fsara%5Fsanchez%5Ftalent%5Fcom%2FDocuments%2FRecordings%2FLlamada%20con%20Antorcha%20abril%202022%2D20220419%5F102144%2DGrabaci%C3%B3n%20de%20la%20reuni%C3%B3n%2Emp4&ga=1

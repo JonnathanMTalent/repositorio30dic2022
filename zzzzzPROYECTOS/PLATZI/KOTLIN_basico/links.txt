@@ -1,0 +1,7 @@
+
+
+Aplicacion toolbox de jetBrai:
+https://www.jetbrains.com/es-es/toolbox-app/
+
+instalar intelliJ IDEA; IDE de java eficaz y ergonómico de jetBrai
+https://www.jetbrains.com/es-es/idea/download/#section=windows

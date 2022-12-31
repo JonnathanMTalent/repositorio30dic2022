@@ -1,0 +1,18 @@
+Team atentos con el comunicado de Madelen:
+
+Madelen Brito Carrera: Migration Spider Log / New Feature Spiders Talent 
+
+publicado en Contenido/General a las lunes, 22 de agosto de 2022 9:37:16 a. m.
+
+ Con este nueva caracteristica de los spider en Talent, ahora los reinsert, 
+ reprocess y reindex que ocurran serán por:
+
+Error de Jobdata
+Empty Location
+Error en location
+error en empname
+error en feedcode.
+Url con variables de sesion.
+Es decir todos orientados a errores de indexación. Por tanto es muy, 
+pero muy importantes, usar The Pulse para seguimiento de casos, ya que
+ el Marca el caso en la columna Jobs Stats Error

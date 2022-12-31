@@ -1,0 +1,16 @@
+{
+"options": {
+"inactivateJQuery": false,
+"ignoreLoadErrors": false,
+"waitForPageLoadEvent": false,
+"waitForResources": false
+},
+"noimage": true,
+"skipResources": false,
+"noUnnecessaryResources": false
+}
+
+
+jobsite:
+
+https://www.prnhealthservices.com/jobs?pg=0
