@@ -14,6 +14,14 @@ INDICE
 <<split-inicio
 rautomaticas
 jobsDB
+
+EXPERIMENTALES
+
+<<var_filtrada      // filtrar una variable cuando hay varios selectores en la misma etiqueta se filtra con un carater o texto
+<<limpiar etiquetas printJob,li etc; en full_html de palabras claves, con un for
+<<cuando viene un td tr
+<<limpiar los selectores p con palabras especiales.
+
   //BENEFIT DESDE EL JOB.JOBDESC 
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 FUNCIONES:
@@ -56,6 +64,10 @@ PLANTILLAS WEB SCRAPING
 // FETCH EXTRAC BASICO COMPLETO
 // FETCH EXTRAC BASICO
 
+🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳 <<Error jobsErrorLog
+//linea para extraer el texto completo del error en jobs Error log 
+const textoError=document.querySelectorAll('#table-63b5c414c9126 > tbody > tr:nth-child(1) > td:nth-child(4)')[0].textContent.trim(); textoError;
+
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
 // PONER EN LOS FETCH
@@ -88,8 +100,13 @@ job.location=(job.source_location)||hq; } //HEAD QUARTERS:
 job.location=job.location.replace(/\d/gi,"").replace(/\(\d+\)/g,"").replace(/ \([^)]*\) /g, "").replace(/\(.*?\)/g, '').replace(/<\/?[^>]+(>|$)/g, "").replace(/ \{[^)]*\} /g, "").replace(/ \[[^)]*\] /g, "").replace(",,",", ").replace(", ,",", ");
 // if(job.location.search(//gmi)>-1){job.location="";}
 
+🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳<<var_filtrada🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
+//variable filtrada
 
 
+let busqueda= [...elem?.querySelectorAll("footer span")]?.filter(x => x?.textContent?.includes("/"))[0]?.textContent?.trim();
+if(busqueda)job.source_=busqueda;
+// let html_jobs= [...document?.querySelectorAll("footer span")]?.filter(x => x?.textContent?.includes("/"))
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳 <<REQID 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
 
@@ -562,8 +579,10 @@ function buscOcurrenciaHTML(contenedor,selector,string,expR,verHTML) { // jjms
 
 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
 
-//poner debajo de out["job"] = job;
+
 checkAll(job,"http,https,.com,apply,perks,telefone,phone,conctact,e-mail,correo,$,@,¢,€,R$",document.body);
+
+checkAll(job,"http,https,.com,apply,perks,telefone,phone,conctact,e-mail,correo,$,@,¢,€,R$",iframeDocument.body);
 
 // contenedores:document.body;  document ; iframeDocument.body ;doc, tmp, etc,  colocarlo preferiblemente despues de job.jobdesc donde agarre bien tanto el job como el contenedor.
 
@@ -715,6 +734,8 @@ function validarFormatoFecha(campo) {
     return cleanItem;
   }
   ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+//Limpiar
+
 
 //  =Limpiar(elementoaLimpiar,"formatDate-","isDate-","addCero-","splitFecha-","borrar este texto","numeros-","letras-","agrupaciones-","caracteresEspeciales-","correoUrl-","emogis-","anular si existe esta expresion regular","splitInicio_pop","splitFin_shift","splitUndefined-Y")
 
@@ -4237,9 +4258,112 @@ function getDesc(id) {
 
 
 
-❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+    ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ <<limpiar etiquetas printJob,li etc; en full_html de palabras claves, con un for 
 
 for(const a of full_html.querySelectorAll('p')){  // Varios p
     const text = a.textContent.trim();
       if(text.search(/please|apply|call|click|cargo:|cv|telephone|e-mail|email|www.|@|https/i) > -1) a.remove();
   }
+
+  ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️  html_jobs con includes
+  var html_jobs = [...document.querySelectorAll("div > a")].filter(x => x.textContent.includes("apply"))
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️  <<cuando viene un td tr
+
+doc.querySelectorAll('td').forEach(tag => {
+    if (tag.textContent.match(/Locations/i) && tag.nextElementSibling){
+        job.source_location = tag.nextElementSibling.textContent.trim();
+        job.location = job.source_location.trim();
+    }
+    if (tag.textContent.match(/Posted/i) && tag.nextElementSibling)
+        job.dateposted_raw = new Date(tag.nextElementSibling.textContent.trim()).toLocaleDateString('en-US', {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+        });
+    if (tag.textContent.match(/Type/i) && tag.nextElementSibling)
+        job.source_jobtype = tag.nextElementSibling.textContent.trim();
+    if (tag.textContent.match(/Position/i) && tag.nextElementSibling)
+        job.reqid = tag.nextElementSibling.textContent.trim();    
+});
+
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ funcion nueva de juan.bermudez para el script json
+
+let all = doc.querySelectorAll(`script[type="application/ld+json"]`);
+for (let x of all) {
+    if (x.textContent.match(/"@type":"JobPosting"|"@type": "JobPosting"|"@type":"JobPosting"/ig)) { //cambiar el como se ve el json
+        var dataJson = JSON.parse(x.textContent.trim())
+        var full_html = document.createElement(`div`);
+        full_html.innerHTML = dataJson.description; //cambiar la etiqueta en la que viene eljson
+        if (dataJson.hiringOrganization) { //cambiar los demás datos a extraer. 
+            job.source_empname = dataJson.hiringOrganization.name;
+        }
+        if (dataJson.validThrough) {
+            var dateAux = new Date(dataJson.validThrough);
+            job.dateclosed_raw = dateAux.toLocaleDateString("en-US");
+        }
+        if (dataJson.baseSalary && dataJson.baseSalary.value.minValue && dataJson.baseSalary.value.minValue != 0) {
+            job.source_salary = dataJson.baseSalary.value.minValue
+        }
+        if (dataJson.datePosted) {
+            let dateAux2 = new Date(dataJson.datePosted);
+            job.dateposted_raw = dateAux2.toLocaleDateString("en-US");
+        }
+        if (dataJson.employmentType && dataJson.employmentType.length >1) {
+            job.source_jobtype = dataJson.employmentType
+        }
+        if (dataJson.identifier) {
+            job.reqid = dataJson.identifier.value
+        }
+    }
+}
+
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+for (const a of full_html.querySelectorAll('p, span, li')) {
+    if (a.textContent.search(/@|http|www./ig) > -1) {
+        a.remove();
+    }
+}
+
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+job.source_benefit = getBenefits(job.jobdesc,/Offers:/g,/##/g);
+
+function getBenefits(html, recorteArriba, recorteAbajo) {
+    //benefit
+    var newHtml = html;
+    if (newHtml.search(recorteArriba) > -1) {
+        newHtml = removeTextBefore(newHtml, recorteArriba, true);
+        newHtml = removeTextAfter(newHtml, recorteAbajo, true);
+        newHtml = newHtml.trim();
+    } else {
+        newHtml = undefined
+    }
+
+    return newHtml
+}
+
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+let patron="bla bla bla";
+let texto; // variable donde va a venir el texto a limpiar
+texto.replace(new RegExp(patron,"gmi"),"");
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ <<limpiar los selectores p con palabras especiales.
+for(const a of full_html.querySelectorAll('p')){  // Varios p
+    const text = a.textContent.trim();
+    if(text.search(/ klick| solliciteren| solliciteer| cv| tel.| vragen| formulier| contact|mailen|www.|@|https/i) > -1) a.remove();
+  }
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
