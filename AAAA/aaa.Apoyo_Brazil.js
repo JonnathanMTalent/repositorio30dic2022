@@ -21,10 +21,12 @@ EXPERIMENTALES
 <<limpiar etiquetas printJob,li etc; en full_html de palabras claves, con un for
 <<cuando viene un td tr
 <<limpiar los selectores p con palabras especiales.
-
+// buscar con palabras las ats
+http://index02.neuvoo.com/dash/class/portfolios/async.php?action=get-scanids-by-jobsiteurl-fragment&debug=1&fragment=
   //BENEFIT DESDE EL JOB.JOBDESC 
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 FUNCIONES:
+ion dateEstructurados
 <<formatDate
 ion buscOcurrenciaHTML
 ion getDateFormat
@@ -46,8 +48,7 @@ tres variables automaticas
 
 PLANTILLAS WEB SCRAPING
 
-//JOBDESCRIPTION COMPLETO
-//JOBDESCRIPTION BASICO
+
 
 //JSON FETCH COMPLETO
 //JSON FETCH BASICA
@@ -55,14 +56,19 @@ PLANTILLAS WEB SCRAPING
 //EXTRACT BASICO   COMPLETO
 //EXTRACT BASICO
 
-// DOBLE-fetch  COMPLETO
-// DOBLE fetch BASICO
+// FETCH EXTRAC BASICO COMPLETO
+// FETCH EXTRAC BASICO
+
+//JOBDESCRIPTION COMPLETO
+//JOBDESCRIPTION BASICO
 
  //FETCH JOBDATA sin decoder  COMPLETO
 //FETCH JOBDATA -sin decoder BASICO
 
-// FETCH EXTRAC BASICO COMPLETO
-// FETCH EXTRAC BASICO
+// DOBLE-fetch  COMPLETO
+// DOBLE fetch BASICO
+
+
 
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳 <<Error jobsErrorLog
 //linea para extraer el texto completo del error en jobs Error log 
@@ -406,6 +412,105 @@ function buscOcurrenciaHTML(contenedor,selector,string,expR,verHTML) { // jjms
      return resultado;
 }
 
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+// job.dateclosed_raw=dateEstructurados(document,"closed");
+// job.dateposted_raw=dateEstructurados(document,"posted");
+
+
+function dateEstructurados(contenedor,datetype) { //jjms
+    if (typeof msg == "undefined") msg = console.log;
+    var date1,date2;
+  if(datetype=="posted" || datetype=="closed"){
+    datetype=="posted"?(date1="datePosted",date2="datePublished"):(date1="validThrough",date2="dateClosed")
+  
+  }else{
+    return msg("el datetype ingresado no es valido");
+  }
+  const formatDate = (value) => {
+    let date = new Date(value);
+    const withCero = n => n < 10 ? `0${n}` : n;
+    return `${withCero(date.getMonth()+1)}/${withCero(date.getDate())}/${date.getFullYear()}`;
+  }
+  
+  
+  if(contenedor.querySelector('script[type="application/ld+json"]')){
+    // Extract text on the script
+    var html=contenedor.querySelector('script[type="application/ld+json"]').textContent.trim().replace(/\s+/g,' ').replace(/\@/gi,"");
+  
+   var json=JSON.parse(html);
+    var date=''; var dateInJsonGraph={};var dateInJsonGraph2={}; var dateInJson={}; 
+  
+  
+    var tipo=0;
+  //GRAPH    
+  
+  
+  dateInJsonGraph=json['@graph']?.find(e => (e?.hasOwnProperty(date1)) || (e?.hasOwnProperty(date2)));
+  if(dateInJsonGraph){ tipo=1}else{
+    dateInJsonGraph2=json['graph']?.find(e => (e?.hasOwnProperty(date1)) || (e?.hasOwnProperty(date2)));
+    if(dateInJsonGraph2){tipo=2} else{
+        dateInJson=json;
+        if(dateInJson)tipo=3;
+    }
+    }  
+  
+  //   dateInJsonGraph? tipo=1:
+  //   dateInJsonGraph2? tipo=2:
+  //   dateInJson? tipo=3: tipo=0;
+  
+  switch (tipo) {
+    case 1:
+        
+            if(date1=="datePosted"&&date2=="datePublished"){dateInJsonGraph.datePosted?date=dateInJsonGraph.datePosted:
+                dateInJsonGraph.datePublished?date=dateInJsonGraph.datePublished:
+                date=undefined;}
+  
+            if(date1=="validThrough"&&date2=="dateClosed"){dateInJsonGraph.validThrough?date=dateInJsonGraph.validThrough:
+                dateInJsonGraph.dateClosed?date=dateInJsonGraph.dateClosed:
+                date=undefined;}
+        
+      break;
+  
+    case 2:
+            if(date1=="datePosted"&&date2=="datePublished"){
+                dateInJsonGraph2.datePosted?date=dateInJsonGraph2.datePosted:
+                dateInJsonGraph2.datePublished?date=dateInJsonGraph2.datePublished:
+                date=undefined;}
+  
+            if(date1=="validThrough"&&date2=="dateClosed"){
+                dateInJsonGraph2.validThrough?date=dateInJsonGraph2.validThrough:
+                dateInJsonGraph2.dateClosed?date=dateInJsonGraph2.dateClosed:
+                date=undefined;}
+        
+      break;
+    case 3:
+        if(date1=="datePosted"&&date2=="datePublished"){
+            dateInJson.datePosted?date=dateInJson.datePosted:
+            dateInJson.datePublished?date=dateInJson.datePublished:
+            date=undefined;}
+  
+        if(date1=="validThrough"&&date2=="dateClosed"){
+            dateInJson.validThrough?date=dateInJson.validThrough:
+            dateInJson.dateClosed?date=dateInJson.dateClosed:
+            date=undefined;}
+        break;
+  
+        
+  
+    // Se pueden incluir todos los casos que quieras
+  
+    default:
+      msg("No se encontro el tipo de date");
+  }
+  
+  
+  
+  var resultado=date?formatDate(date):undefined;
+  }
+  return resultado  //jjms
+  }
 
 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
 
@@ -1065,10 +1170,8 @@ flag_active:1 AND scanid:163207 AND (location:"location" OR location:"locations"
 // para revisar que no tenga multilocation:
 AND (location:"more" OR location:"More" OR location:"MORE" OR location:"mais"  OR location:"outros"  OR location:"+")
 👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽 <<split-inicio-fin 👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽
-
-const splitInicio_pop="";
-const splitFin_shift="";
-const elementoaLimpiar= job.jobdesc;
+function split_Inicio_Fin(splitInicio_pop="",splitFin_shift="", texto){
+const elementoaLimpiar= texto;
 let elementoLimpio;
 if(splitInicio_pop!="" && splitFin_shift!=""){ 
     if((elementoaLimpiar.search(splitInicio_pop)>-1) && (elementoaLimpiar.search(splitFin_shift)>-1))
@@ -1078,7 +1181,8 @@ if(splitInicio_pop!="" && splitFin_shift!=""){
         elementoLimpio=undefined;
     }
 }
-if(elementoLimpio)job.source_benefit=elementoLimpio;
+if(elementoLimpio)return elementoLimpio;
+}
 
 👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽  👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽
 👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽 <<split-inicio 👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽👽
@@ -4288,6 +4392,29 @@ doc.querySelectorAll('td').forEach(tag => {
 });
 
 
+
+//OTRA FORMA:
+ 
+
+//UNITARIO
+arraynodos = Array.from(document.querySelectorAll("td")).find(aux => aux.innerText.search(/ref/gi) > -1);
+if (arraynodos) {
+    job.reqid = arraynodos.nextElementSibling.textContent.trim();
+}
+
+
+// CON MULTIPLES VARIABLES
+const arraynodos = Array.from(document.querySelectorAll("td"));
+
+let varx=arraynodos.find(aux => aux.innerText.search(/Salary/gi) > -1)?.nextElementSibling?.textContent.trim();
+varx=arraynodos.find(aux => aux.innerText.search(/referencia/gi) > -1)?.nextElementSibling?.textContent.trim();
+varx=arraynodos.find(aux => aux.innerText.search(/Posted on/gi) > -1)?.nextElementSibling?.textContent.trim();
+varx=arraynodos.find(aux => aux.innerText.search(/jobtype/gi) > -1)?.nextElementSibling?.textContent.trim();
+
+if(varx)job.source_salary= varx
+if(varx)job.reqid= varx
+if(varx)job.dateposted_raw= varx
+if(varx)job.source_jobtype= varx
 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ funcion nueva de juan.bermudez para el script json
 
 let all = doc.querySelectorAll(`script[type="application/ld+json"]`);

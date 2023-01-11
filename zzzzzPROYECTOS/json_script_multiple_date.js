@@ -1,5 +1,110 @@
 // ULTIMA ACTUALIZACION:
 
+
+// job.dateclosed_raw=dateEstructurados(document,"closed");
+// job.dateposted_raw=dateEstructurados(document,"posted");
+
+
+function dateEstructurados(contenedor,datetype) { //jjms
+  if (typeof msg == "undefined") msg = console.log;
+  var date1,date2;
+if(datetype=="posted" || datetype=="closed"){
+  datetype=="posted"?(date1="datePosted",date2="datePublished"):(date1="validThrough",date2="dateClosed")
+
+}else{
+  return msg("el datetype ingresado no es valido");
+}
+const formatDate = (value) => {
+  let date = new Date(value);
+  const withCero = n => n < 10 ? `0${n}` : n;
+  return `${withCero(date.getMonth()+1)}/${withCero(date.getDate())}/${date.getFullYear()}`;
+}
+
+
+if(contenedor.querySelector('script[type="application/ld+json"]')){
+  // Extract text on the script
+  var html=contenedor.querySelector('script[type="application/ld+json"]').textContent.trim().replace(/\s+/g,' ').replace(/\@/gi,"");
+
+ var json=JSON.parse(html);
+  var date=''; var dateInJsonGraph={};var dateInJsonGraph2={}; var dateInJson={}; 
+
+
+  var tipo=0;
+//GRAPH    
+
+
+dateInJsonGraph=json['@graph']?.find(e => (e?.hasOwnProperty(date1)) || (e?.hasOwnProperty(date2)));
+if(dateInJsonGraph){ tipo=1}else{
+  dateInJsonGraph2=json['graph']?.find(e => (e?.hasOwnProperty(date1)) || (e?.hasOwnProperty(date2)));
+  if(dateInJsonGraph2){tipo=2} else{
+      dateInJson=json;
+      if(dateInJson)tipo=3;
+  }
+  }  
+
+//   dateInJsonGraph? tipo=1:
+//   dateInJsonGraph2? tipo=2:
+//   dateInJson? tipo=3: tipo=0;
+
+switch (tipo) {
+  case 1:
+      
+          if(date1=="datePosted"&&date2=="datePublished"){dateInJsonGraph.datePosted?date=dateInJsonGraph.datePosted:
+              dateInJsonGraph.datePublished?date=dateInJsonGraph.datePublished:
+              date=undefined;}
+
+          if(date1=="validThrough"&&date2=="dateClosed"){dateInJsonGraph.validThrough?date=dateInJsonGraph.validThrough:
+              dateInJsonGraph.dateClosed?date=dateInJsonGraph.dateClosed:
+              date=undefined;}
+      
+    break;
+
+  case 2:
+          if(date1=="datePosted"&&date2=="datePublished"){
+              dateInJsonGraph2.datePosted?date=dateInJsonGraph2.datePosted:
+              dateInJsonGraph2.datePublished?date=dateInJsonGraph2.datePublished:
+              date=undefined;}
+
+          if(date1=="validThrough"&&date2=="dateClosed"){
+              dateInJsonGraph2.validThrough?date=dateInJsonGraph2.validThrough:
+              dateInJsonGraph2.dateClosed?date=dateInJsonGraph2.dateClosed:
+              date=undefined;}
+      
+    break;
+  case 3:
+      if(date1=="datePosted"&&date2=="datePublished"){
+          dateInJson.datePosted?date=dateInJson.datePosted:
+          dateInJson.datePublished?date=dateInJson.datePublished:
+          date=undefined;}
+
+      if(date1=="validThrough"&&date2=="dateClosed"){
+          dateInJson.validThrough?date=dateInJson.validThrough:
+          dateInJson.dateClosed?date=dateInJson.dateClosed:
+          date=undefined;}
+      break;
+
+      
+
+  // Se pueden incluir todos los casos que quieras
+
+  default:
+    msg("No se encontro el tipo de date");
+}
+
+
+
+var resultado=date?formatDate(date):undefined;
+}
+return resultado  //jjms
+}
+
+
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+
+// Anterior
+
 job.dateposted_raw=dateEstructurados(div,"datePublished", "datePosted");
 job.dateclosed_raw=dateEstructurados(document,"dateFinish", "dateClosed")
 
