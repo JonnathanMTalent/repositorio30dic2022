@@ -26,6 +26,7 @@ http://index02.neuvoo.com/dash/class/portfolios/async.php?action=get-scanids-by-
   //BENEFIT DESDE EL JOB.JOBDESC 
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 FUNCIONES:
+<<para aprender a usar
 ion dateEstructurados
 <<formatDate
 ion buscOcurrenciaHTML
@@ -113,6 +114,11 @@ job.location=job.location.replace(/\d/gi,"").replace(/\(\d+\)/g,"").replace(/ \(
 let busqueda= [...elem?.querySelectorAll("footer span")]?.filter(x => x?.textContent?.includes("/"))[0]?.textContent?.trim();
 if(busqueda)job.source_=busqueda;
 // let html_jobs= [...document?.querySelectorAll("footer span")]?.filter(x => x?.textContent?.includes("/"))
+
+
+//cuando acumulamos los textos que contienen la palabra
+let busqueda=[...document?.querySelectorAll("p")]?.filter(x => x?.textContent?.search(/benefit/gmi)>-1);
+let arr=[]; for(x in busqueda)arr.push(busqueda[x].textContent.trim());arr=arr.join(", ");
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳 <<REQID 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
 
@@ -1003,6 +1009,18 @@ function Limpiar(elementoaLimpiar,formatDate,isDate,addCero,splitFecha,texto,num
 }
 
 
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+// Usar solo cuando las fechas estan ordenadas,  ya que , de no ser asi puede presentarse el problema de que en unas corridas no suba ningun job y en otras si y se muera el test o el run
+
+job.dateposted_raw = '06/12/2021';
+if (validationDate(job.dateposted_raw) <= 180) jobs.push(job);
+//////////////// Function
+function validationDate(date) {
+    const result = Math.abs(new Date() - new Date(date));
+    return Math.trunc(result / (1000 * 3600 * 24));
+}
+// OUT:
+// 437 días
 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
   //*/ // jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj   
 
@@ -4488,6 +4506,21 @@ for(const a of full_html.querySelectorAll('p')){  // Varios p
   }
 
 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+<<para aprender a usar
+
+CONSOLE
+//COMODINES #s
+console.log(`hola soy %s y tengo #s años`,nombre,edad);
+//muestra el mensaje cuando la pruba falla
+console.assert(x>y , {x,y, "mensaje del error"});
+//cuenta y muestra cada vez que se ejecuta alguan parte de codigo
+console.count("mensaje");
+//muestra tabla
+console.table(Object.entries("poneraquiobjetoSinComillas"));
+//
+throw new Error("mensaje personalizado del error");
+//se mueve hacia el elemento hijo con el indice
+.children[i];
 
 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
 
