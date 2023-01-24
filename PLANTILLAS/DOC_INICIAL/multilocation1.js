@@ -72,7 +72,3 @@ job.location=exp;
 
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
-let contactPhone = [...full_html.querySelectorAll('p')].find(elem => elem.textContent.search(/\+\d+\s\d+|\(\d+\)\s\d+\‑\d+|Tel\.\s\d+\s\d+\-\d+|\d+\s\d+\-\d|phone\s\d+/g) > -1);
-if (contactPhone) {
-    contactPhone.remove();
-}

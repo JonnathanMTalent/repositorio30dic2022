@@ -94,3 +94,5 @@ Con esta etiqueta insertamos ventanas de paginas propias o externas como google 
 
 RUTA PARA DESCARGAR LAS LIBRERIAS DE NPM:
 $ npm i @babel/core babel-loader webpack@4 webpack-cli@4 webpack-dev-server html-webpack-plugin@4 copy-webpack-plugin@6 --save-dev
+ver este video
+https://www.youtube.com/watch?v=BzynYwGx-qg

@@ -16,13 +16,14 @@ rautomaticas
 jobsDB
 
 EXPERIMENTALES
-
+<<nueva forma de script-json
 <<var_filtrada      // filtrar una variable cuando hay varios selectores en la misma etiqueta se filtra con un carater o texto
 <<limpiar etiquetas printJob,li etc; en full_html de palabras claves, con un for
 <<cuando viene un td tr
 <<limpiar los selectores p con palabras especiales.
 // buscar con palabras las ats
 http://index02.neuvoo.com/dash/class/portfolios/async.php?action=get-scanids-by-jobsiteurl-fragment&debug=1&fragment=
+
   //BENEFIT DESDE EL JOB.JOBDESC 
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 FUNCIONES:
@@ -38,7 +39,9 @@ ion checkContenedor
 ion checkAll
 ion addCero
 ion validarFormatoFecha
+ion validationDate  // para no insertar fechas de mas de 6 meses
 n removeEmojis
+n contacPhone
 ion Limpiar
 ion getDesc
 EN PROCESO
@@ -47,27 +50,28 @@ tres variables automaticas
 <<variables con el mismo selector
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
-PLANTILLAS WEB SCRAPING
+//EXTRACT
+
+JSON FETCH COMPLETO
+JSON FETCH BASICA
+
+EXTRACT BASICO   COMPLETO
+EXTRACT BASICO
+Extract MAP
+
+FETCH EXTRAC COMPLETO
+FETCH EXTRAC BASICO
 
 
+//DESCRIPCIONES
+JOBDESCRIPTION COMPLETO
+JOBDESCRIPTION BASICO
 
-//JSON FETCH COMPLETO
-//JSON FETCH BASICA
+ FETCH JOBDATA sin decoder  COMPLETO
+FETCH JOBDATA -sin decoder BASICO
 
-//EXTRACT BASICO   COMPLETO
-//EXTRACT BASICO
-
-// FETCH EXTRAC BASICO COMPLETO
-// FETCH EXTRAC BASICO
-
-//JOBDESCRIPTION COMPLETO
-//JOBDESCRIPTION BASICO
-
- //FETCH JOBDATA sin decoder  COMPLETO
-//FETCH JOBDATA -sin decoder BASICO
-
-// DOBLE-fetch  COMPLETO
-// DOBLE fetch BASICO
+DOBLE-fetch  COMPLETO
+DOBLE fetch BASICO
 
 
 
@@ -110,7 +114,7 @@ job.location=job.location.replace(/\d/gi,"").replace(/\(\d+\)/g,"").replace(/ \(
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳<<var_filtrada🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 //variable filtrada
 
-
+//solo la primera ocurrencia
 let busqueda= [...elem?.querySelectorAll("footer span")]?.filter(x => x?.textContent?.includes("/"))[0]?.textContent?.trim();
 if(busqueda)job.source_=busqueda;
 // let html_jobs= [...document?.querySelectorAll("footer span")]?.filter(x => x?.textContent?.includes("/"))
@@ -119,6 +123,7 @@ if(busqueda)job.source_=busqueda;
 //cuando acumulamos los textos que contienen la palabra
 let busqueda=[...document?.querySelectorAll("p")]?.filter(x => x?.textContent?.search(/benefit/gmi)>-1);
 let arr=[]; for(x in busqueda)arr.push(busqueda[x].textContent.trim());arr=arr.join(", ");
+if(arr)job.source_benefit=arr;
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳 <<REQID 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
 
@@ -349,6 +354,37 @@ for (const a of full_html.querySelectorAll('p')) {  // Varios p
         full_html=document?.querySelector(selectorError);
     }
 
+🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳<<nueva forma de script-json🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
+let all = doc.querySelectorAll(`script[type="application/ld+json"]`);
+for (let x of all) {
+    if (x.textContent.match(/"@type":"JobPosting"|"@type": "JobPosting"|"@type":"JobPosting"/ig)) { //cambiar el como se ve el json
+        var dataJson = JSON.parse(x.textContent.trim())
+        var full_html = document.createElement(`div`);
+        full_html.innerHTML = dataJson.description; //cambiar la etiqueta en la que viene eljson
+        if (dataJson.hiringOrganization) { //cambiar los demás datos a extraer. 
+            job.source_empname = dataJson.hiringOrganization.name;
+        }
+        if (dataJson.validThrough) {
+            var dateAux = new Date(dataJson.validThrough);
+            job.dateclosed_raw = dateAux.toLocaleDateString("en-US");
+        }
+        if (dataJson.baseSalary && dataJson.baseSalary.value.minValue && dataJson.baseSalary.value.minValue != 0) {
+            job.source_salary = dataJson.baseSalary.value.minValue
+        }
+        if (dataJson.datePosted) {
+            let dateAux2 = new Date(dataJson.datePosted);
+            job.dateposted_raw = dateAux2.toLocaleDateString("en-US");
+        }
+        if (dataJson.employmentType && dataJson.employmentType.length >1) {
+            job.source_jobtype = dataJson.employmentType
+        }
+        if (dataJson.identifier) {
+            job.reqid = dataJson.identifier.value
+        }
+    }
+}
+
+
 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️<<formatDate❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
@@ -441,9 +477,9 @@ function dateEstructurados(contenedor,datetype) { //jjms
   }
   
   
-  if(contenedor.querySelector('script[type="application/ld+json"]')){
+  if([...contenedor.querySelectorAll('script[type="application/ld+json"]')].filter(x=> x.innerHTML.search("date")>-1).length>0){
     // Extract text on the script
-    var html=contenedor.querySelector('script[type="application/ld+json"]').textContent.trim().replace(/\s+/g,' ').replace(/\@/gi,"");
+    var html=[...document.querySelectorAll('script[type="application/ld+json"]')].filter(x=> x.innerHTML.search("date")>-1)[0].textContent.trim().replace(/\s+/g,' ').replace(/\@/gi,"");
   
    var json=JSON.parse(html);
     var date=''; var dateInJsonGraph={};var dateInJsonGraph2={}; var dateInJson={}; 
@@ -1650,13 +1686,7 @@ function buscOcurrenciaHTML(contenedor,selector,string,expR,verHTML) { // jjms
     var out = {};
     var job = {};
     var selector = '';
-    var selectorError="";
-    var full_html;
-    if(document?.querySelector(selector)){full_html = document.querySelector(selector);} else{
-        full_html=document?.querySelector(selectorError);
-    }
-
-
+    var full_html = document.querySelector(selector);
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -2586,6 +2616,26 @@ function buscOcurrenciaHTML(contenedor,selector,string,expR,verHTML) { // jjms
     return out;
 })();
 
+🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺
+//Extract MAP
+(function() {
+    const out = {};
+    const jobs = [];
+    const html_jobs = [...document.querySelectorAll('div#VacancyList > a')];
+    html_jobs.map((elem) => {
+        const job = {};
+        job.title = elem.querySelector('').textContent.trim();
+        job.url = elem.href.trim();
+        job.reqid = job.url.split('/').pop();
+        job.source_location = elem.querySelector('').textContent.trim();
+        job.location = job.source_location;
+        job.temp = 1;
+        jobs.push(job);
+    });
+
+    out.jobs = jobs;
+    return out;
+})();
 🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺
 
  // DOBLE-fetch  COMPLETO
@@ -3742,7 +3792,7 @@ if(contenedor!=null && selector!=null){
 
   🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺🦺
 
-  // FETCH EXTRAC BASICO COMPLETO
+  // FETCH EXTRAC COMPLETO
   (async () => {
     let out = {};
     // out["pass_it"] = pass_it;
